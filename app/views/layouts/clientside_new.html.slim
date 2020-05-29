@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    title
+      | GetHero
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    link rel="manifest" href="/manifest.json"
+    meta name="theme-color" content="#C50001"
+    = csrf_meta_tags
+    = csp_meta_tag
+    link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
+    link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Questrial&display=swap"
+    = stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = yield(:styles)
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    /= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = yield(:scripts)
+  body.mdc-typography.clientside
+    / = console if Rails.env.development?
+    = content_for?(:content) ? yield(:content) : yield

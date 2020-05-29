@@ -1,0 +1,46 @@
+@use "@material/textfield/mixins" as mdcTextfield;
+@use "@material/button/mixins" as mdcButton;
+$mdc-theme-primary: #6200ee !default;
+.body-bg{
+  &-primary{
+    background-color: $mdc-theme-primary;
+    color: #fff;
+    .mdc-typography-text--animated{
+      text-shadow: .03em .03em 0 $mdc-theme-primary;
+    }
+  }
+  &-success{
+    background-color: #2CB553;
+    color: #fff;
+    .mdc-typography-text--animated{
+      text-shadow: .03em .03em 0 #2CB553;
+    }
+  }
+  &-error{
+    background-color: #DF2323;
+    color: #fff;
+    .mdc-typography-text--animated{
+      text-shadow: .03em .03em 0 #DF2323;
+    }
+  }
+  &-primary, &-success, &-error{
+    .mdc-text-field{
+      @include  mdcTextfield.ink-color(#fff);
+      @include mdcTextfield.label-color(#fff);
+      @include  mdcTextfield.caret-color(#fff)
+    }
+    .mdc-text-field--outlined{
+      @include mdcTextfield.outline-color(#fff);
+    }
+    a, .mdc-form-field{
+      color: #fff;
+    }
+    .mdc-text-field:not(.mdc-text-field--disabled) + .mdc-text-field-helper-line .mdc-text-field-helper-text{
+      color: #fff;
+    }
+    .mdc-button--unelevated.mdc-button--white{
+      @include mdcButton.container-fill-color(#fff);
+      @include mdcButton.ink-color($mdc-theme-primary);
+    }
+  }
+}

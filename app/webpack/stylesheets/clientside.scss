@@ -1,0 +1,357 @@
+$white: #ffffff;
+$violet: #6202EE;
+$black-violet: #541ca6;
+$light-grey: #F2F2F2;
+$black: #212121;
+$grey: #757575;
+
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900&display=swap');
+a {
+  color: inherit;
+}
+
+body, html{
+  height: 100%;
+}
+
+
+.burger-button{
+  width: 32px;
+  height: 32px;
+}
+
+.button {
+  padding: 11px 20px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 400;
+  font-family: 'Roboto', sans-serif;
+  background-color: inherit;
+  border: 1px solid #CBCBCB;
+  color: #A6A6A6;
+}
+
+.breadcrumbs {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 120%;
+  color: $grey;
+}
+
+.cards {
+  display: flex;
+  //justify-content: space-between;
+  flex-wrap: wrap;
+  padding-top: 50px;
+}
+
+.Catalog{
+  display: flex;
+  flex-direction: row;
+}
+
+.client {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 300;
+  font-family: 'Roboto', sans-serif;
+  color: grey;
+  text-align: right;
+
+}
+
+.company-logo {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.company-stars {
+  position: absolute;
+  top: 40px;
+  left: 20px;
+  .yellow-star{
+    color: #EEF168;
+  }
+  .grey-star{
+    color: #DCDCDC;
+  }
+}
+
+.content-container {
+  padding: 0 50px 50px 50px;
+  margin-top: 90px;
+}
+
+.dropdown-left{
+  transform: translateX(140px);
+  transition-duration: 0.8s;
+}
+
+h1 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 90%;
+  color: $black;
+  padding-bottom: 10px;
+}
+
+
+.LeftBlock{
+  background-color: $white;
+  width: 140px;
+  min-width: 100px;
+  height: 100%;
+  min-height: 100vh;
+  box-shadow: 0 0 30px rgba(197, 197, 197, 0.25);
+  overflow-y: auto;
+  .logo{
+    display: block;
+    width: 50px;
+    height: 50px;
+    margin: 25px auto 50px auto;
+  }
+  .left-menu{
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    width: 140px;
+
+    li{
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      font-family: 'Roboto', sans-serif;
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 14px;
+      color: $black;
+      margin-bottom: 20px;
+      p{
+        margin: 0;
+      }
+      img{
+        width: 20px;
+        height: 20px;
+        margin: 0 auto 10px auto;
+      }
+    }
+
+  }
+}
+
+.material-icons{
+  color: #b7b6b6;
+}
+.mdc-top-app-bar {
+  background-color: inherit;
+  padding: 15px 12px;
+  position: fixed;
+  top: 0;
+
+  .mdc-top-app-bar__section--align-end {
+    padding: 8px 200px 8px 12px;
+  }
+}
+
+
+.mdc-card {
+  border-radius: 0;
+  box-shadow: none;
+  margin-bottom: 30px;
+  margin-right: 50px;
+
+  .mdc-card__media {
+    width: 360px;
+    height: 230px;
+    position: relative;
+  }
+
+  .mdc-card-content {
+    border: 1px solid #EDEDED;
+    padding: 30px 20px;
+    font-family: 'Roboto', sans-serif;
+
+    h2 {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 90%;
+      color: #212121;
+      margin: 0;
+    }
+
+    h3 {
+      font-weight: normal;
+      font-size: 11px;
+      //line-height: 120%;
+      color: $grey;
+    }
+
+    .card-descriptions {
+      font-family: 'Roboto', sans-serif;
+      font-weight: normal;
+      font-size: 11px;
+      line-height: 140%;
+      color: $grey;
+      max-width: 70%;
+    }
+
+    .card-contacts {
+      font-family: 'Roboto', sans-serif;
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 120%;
+      color: $black;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.mdc-card__primary-action::before, .mdc-card__primary-action::after {
+  background-color: inherit;
+}
+
+.mdc-card:hover {
+  box-shadow: 0 0 40px rgba(138, 138, 138, 0.25);
+  background-color: inherit;
+}
+
+.mdc-card:hover .mdc-card-content > .button {
+  background-color: $violet;
+  transition-duration: 0.3s;
+  color: $white;
+  margin-right: 25px;
+  border: 1px solid $violet;
+}
+
+.person-button {
+  width: 32px;
+  height: 32px;
+  background-image: url("../images/person1.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-color: $light-grey;
+  border: none;
+  border-radius: 15px;
+  margin-right: 30px;
+}
+
+.person-button:hover {
+  background-color: #dbdbdb;
+  transition-duration: 0.3s;
+}
+
+.RightBlock{
+  z-index: 1;
+}
+.fas,
+.far{
+  font-size: 22px;
+  color: #b7b6b6;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.violet-btn {
+  background-color: $violet;
+  color: $white;
+  margin-right: 25px;
+  border: 1px solid $violet;
+}
+
+.violet-btn:hover {
+  background-color: $black-violet;
+  transition-duration: 0.3s;
+}
+
+.violet-text {
+  color: $violet;
+  font-weight: 500;
+  font-size: 10px;
+  text-align: left;
+}
+
+//media
+
+
+@media screen and (width: 320px) {
+  .mdc-card .mdc-card__media {
+    width: 320px !important;
+  }
+  .content-container {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 544px){
+  .client {
+    display: none;
+  }
+}
+@media screen and (max-width: 450px) {
+  .LeftBlock{
+    z-index: 2;
+    left: -140px;
+    position: fixed;
+  }
+  .content-container {
+    padding: 0 0 0 5px !important;
+  }
+
+
+  .cards .mdc-card{
+    margin: 0 0 50px 0;
+  }
+  .fas{
+    display: none !important;
+  }
+  .mdc-top-app-bar {
+    padding: 15px 5px;
+
+    .mdc-top-app-bar__section--align-end {
+      padding: 8px 10px 8px 12px;
+      justify-content: space-around;
+
+      .violet-btn {
+        margin-right: 0;
+      }
+
+      .person-button {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.LeftBlock_content{
+  overflow-y: auto;
+}
+
+@media screen and (min-width: 451px){
+  .LeftBlock_content{
+    position: fixed;
+    left: 10px;
+  }
+
+  .burger-button{
+    display: none;
+  }
+}
+@media screen and (min-width: 320px) and (max-width: 1329px) {
+  .content-container {
+    padding: 20px;
+  }
+  .cards {
+    justify-content: center;
+    .mdc-card {
+      width: 320px;
+      //margin-right: 20px;
+    }
+  }
+}

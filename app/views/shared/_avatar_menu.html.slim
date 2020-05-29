@@ -1,0 +1,23 @@
+- present(current_user) do |user|
+  .mdc-menu-surface--anchor
+    #avatar-menu-anchor
+      - if current_user.avatar.attached?
+        = image_tag current_user.avatar.variant(resize: "38x38"), class: 'avatar-image-circle'
+      - else
+        = image_tag asset_pack_path('media/images/avatar.png'), class: 'avatar-image-circle'
+    .mdc-menu-surface.mdc-menu
+      .avatar-menu-info
+        .avatar-menu-info-name = user.short_name
+        .avatar-menu-info-email = user.email
+        .avatar-menu-info-details = enum_l(current_user, :role)
+      hr
+      nav.mdc-list aria-hidden="true" aria-orientation="vertical" role="menu" tabindex="-1"
+        = link_to admin_root_path, class: 'mdc-list-item'
+          span.mdc-list-item__text Личный кабинет
+        = menu_link 'Пользователи', admin_users_path, 'users' if policy(:user).index?
+        = menu_link 'Страницы', admin_pages_path, 'pages' if policy(:page).new?
+        = menu_link 'Посты', admin_posts_path, 'landings' if policy(:post).new?
+        = menu_link 'Категории', admin_categories_path, 'categories' if policy(:category).index?
+        = menu_link 'Вывод средств', admin_withdrawals_path, 'reviews' if policy(:withdrawal).index?
+        = link_to destroy_user_session_path, method: 'delete', class: 'mdc-list-item'
+          span.mdc-list-item__text Выход

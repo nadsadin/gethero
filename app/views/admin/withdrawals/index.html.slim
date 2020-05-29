@@ -1,0 +1,36 @@
+h1 Вывод средств
+- if current_user.celebrity?
+  .mdc-mb-2
+    |Чтоб иметь возможность вывода средств необходимо прикрепить карту к аккаунту. Для этого с карты снимется небольшая сумма денег, которая будет возвращена обратно.
+  - if current_user.payment_token.present?
+    .mdc-mb-2
+      |Вы привязали карту.
+      br
+      = link_to 'Привязать другую карту', cc_confirmation_admin_withdrawals_path
+    .mdc-mb-2
+      |Вывод средств доступен от 1000 ₽. У вас доступно:
+      strong =< current_user.balance
+      br
+      |При выводе вы получите
+      strong =< current_user.balance*0.8
+    .mdc-mb-2
+      = link_to 'Запросить вывод средств', new_admin_withdrawal_path
+  -else
+    .mdc-mb-2
+      = link_to 'Привязать карту', cc_confirmation_admin_withdrawals_path
+.mdc-mb-2
+  .mdc-layout-grid__inner
+    .mdc-layout-grid__cell--span-12
+      .mdc-data-table
+        table.mdc-data-table__table
+          thead
+            tr.mdc-data-table__header-row
+              th.mdc-data-table__header-cell Дата запроса
+              th.mdc-data-table__header-cell Сумма
+              th.mdc-data-table__header-cell Статус
+          tbody.mdc-data-table__content
+            - @withdrawals.each do |withdrawal|
+              tr.mdc-data-table__row
+                td.mdc-data-table__cell = withdrawal.created_at.strftime("%d/%m/%Y %H:%M")
+                td.mdc-data-table__cell = withdrawal.amount
+                td.mdc-data-table__cell = withdrawal.status

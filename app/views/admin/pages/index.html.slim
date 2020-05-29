@@ -1,0 +1,24 @@
+h1 Страницы
+
+- if policy(:page).new?
+  = link_to new_admin_page_path, class: 'mdc-fab mdc-fab--absolute'
+    .mdc-fab__icon.material-icons add
+
+table
+  thead
+    tr
+      th Заголовок страницы
+      th ЧПУ
+      th
+      th
+      th
+
+  tbody
+    - @pages.each do |page|
+      tr
+        td = page.title
+        td = page.slug
+        td = link_to 'search', page_path(page.slug), class: 'mdc-icon-button material-icons' if policy(page).edit?
+        td = link_to 'edit', edit_admin_page_path(page), class: 'mdc-icon-button material-icons' if policy(page).edit?
+        td = link_to 'delete', [:admin, page], data: { confirm: 'Вы уверены?' }, method: :delete, class: 'mdc-icon-button material-icons' if policy(page).destroy?
+

@@ -1,0 +1,11 @@
+.info-screen-container
+  .mdc-typography-text--center
+    .mdc-typography-text--xl.font-weight-bolder.mdc-typography-text--animated data-shadow="спасибо!"
+      | спасибо!
+  - if @tip.present? && @tip.target.class == PersonalPage
+    - present(@tip.target) do |personal_page|
+      .mdc-typography-text--center.mdc-mt-4
+        = link_to personal_page.button_text, personal_page_details_path(personal_page), class: 'mdc-button mdc-button--lg mdc-button--gray mdc-button--unelevated mdc-button-shaped mdc-button--ui-width-240 mdc-mb-2'
+  .mdc-typography-text--center
+    = link_to 'На главную', root_path
+= render 'shared/footer'

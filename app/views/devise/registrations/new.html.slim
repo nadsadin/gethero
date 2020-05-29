@@ -1,0 +1,57 @@
+h2
+  = t(".sign_up")
+.small.font-weight-lighter.mdc-mb-4
+  |Регистрация не займет у вас много времени.
+  br
+  |  Необходимо заполнить все поля со значком *.
+= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :email, required: true, autofocus: true , input_html: { autocomplete: "email"}, wrapper_html: {class: 'mdc-input__fullwidth'}
+    .mdc-field-container
+      .mdc-select.mdc-select--outlined data-mdc-auto-init="MDCSelect"
+        input.my_mdc-select__value name="user[role]" type="hidden" value="" /
+        .mdc-select__anchor.w-100
+          i.mdc-select__dropdown-icon
+          .mdc-select__selected-text aria-disabled="false" aria-labelledby="outlined-select-label" aria-required="true" tabindex="0"
+          .mdc-notched-outline.mdc-notched-outline--upgraded
+            .mdc-notched-outline__leading
+            .mdc-notched-outline__notch
+              span.mdc-floating-label  Роль
+            .mdc-notched-outline__trailing
+        /! Other elements from the select remain.
+        .mdc-select__menu.mdc-menu.mdc-menu-surface.w-100 role="listbox"
+          ul.mdc-list
+            li.mdc-list-item.mdc-list-item--selected data-value="user" role="option" tabindex="-1"
+              | Пользователь
+            li.mdc-list-item data-value="celebrity" role="option" tabindex="-1"
+              | Знаменитость
+      .mdc-text-field-helper-line.mdc-text-field-helper-line--error
+        .mdc-text-field-helper-text.mdc-text-field-helper-text--error aria-hidden="true"  Внимание! Вы не заполнили обязательное поле!
+    = f.input :password, required: true, hint: (t('devise.shared.minimum_password_length', count: @minimum_password_length) if @minimum_password_length), input_html: { autocomplete: "new-password"}, wrapper_html: {class: 'mdc-input__fullwidth'}
+    = f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password"}, wrapper_html: {class: 'mdc-input__fullwidth'}
+    .mdc-form-field.mdc-mb-2.mdc-typography-text--left
+      .mdc-checkbox
+        input#checkbox-1.mdc-checkbox__native-control type="checkbox" required="true"
+        .mdc-checkbox__background
+          svg.mdc-checkbox__checkmark viewbox=("0 0 24 24")
+            path.mdc-checkbox__checkmark-path d="M1.73,12.91 8.1,19.28 22.79,4.59" fill="none"
+          .mdc-checkbox__mixedmark
+        .mdc-checkbox__ripple
+      label for="checkbox-1" class="mdc-typography-text--small"
+        |Я соглашаюсь с
+        =< link_to 'Условиями использования сервиса Tips4Me', '#', class: 'mdc-link--underline'
+    .mdc-form-field.mdc-mb-2.mdc-typography-text--left
+      .mdc-checkbox
+        input#checkbox-2.mdc-checkbox__native-control type="checkbox" required="true"
+        .mdc-checkbox__background
+          svg.mdc-checkbox__checkmark viewbox=("0 0 24 24")
+            path.mdc-checkbox__checkmark-path d="M1.73,12.91 8.1,19.28 22.79,4.59" fill="none"
+          .mdc-checkbox__mixedmark
+        .mdc-checkbox__ripple
+      label for="checkbox-2" class="mdc-typography-text--small"
+        |Я даю разрешение на
+        =< link_to 'использование персональных данных', '#', class: 'mdc-link--underline'
+  .form-actions
+    = f.button :submit, t(".sign_up")
+= render "devise/shared/links"

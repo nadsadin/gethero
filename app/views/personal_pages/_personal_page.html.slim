@@ -1,0 +1,6 @@
+- present(personal_page) do |pp|
+  .personal-page-card
+    = link_to pp
+      .personal-page-card-image style="background-image: url(#{pp.preview_url})"
+    = link_to pp.name, pp, class: 'personal-page-card-title'
+    .personal-page-card-description = pp.short_description

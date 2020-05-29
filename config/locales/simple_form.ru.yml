@@ -1,0 +1,168 @@
+ru:
+  helpers:
+    submit:
+      category:
+        create: "Создать"
+        update: "Обновить"
+      user:
+        create: "Создать"
+        update: "Обновить"
+      company:
+        create: "Создать"
+        update: "Обновить"
+      location:
+        create: "Создать"
+        update: "Обновить"
+      personal_category:
+        create: "Создать"
+        update: "Обновить"
+      personal_page:
+        create: "Создать"
+        update: "Обновить"
+      landing:
+        create: "Создать"
+        update: "Обновить"
+      page:
+        create: "Создать"
+        update: "Обновить"
+      post:
+        create: "Создать"
+        update: "Обновить"
+  simple_form:
+    "yes": 'Да'
+    "no": 'Нет'
+    required:
+      text: ''
+      mark: ''
+      html: ''
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Исправьте ошибки:"
+    labels:
+      defaults:
+        title: Название
+        description: Описание
+        date_start: Дата начала
+        date_end: Дата завершения
+        budget: Бюджет
+        city: Город
+        city_id: Город
+        region: Регион
+        region_id: Регион
+        country: Страна
+        country_id: Страна
+        phone: Телефон
+        company: Компания
+        company_id: Компания
+        inn_ogrn: ИНН/ОГРН
+        comment: Коментарий
+        address: Адрес
+        category: Категория
+        plural: Множественное число
+        preview: Превью
+        text: Текст
+      image:
+        file: Изображение
+      city:
+        population: Население
+      user:
+        avatar: Изображение профиля
+        username: Логин
+        name: Имя
+        surname: Фамилия
+        role: Должность
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        company: Компания
+        dob: Дата рождения
+        gender: Пол
+        midname: Отчество
+        inn: "ИНН"
+      budget_approval:
+        text: Комментарий
+        budget_diff: Новый бюджет
+      company:
+        logo: Логотип
+        website: Адрес сайта
+        short_description: Краткое описание
+        description: Описание
+        legal_address: Юридический адрес
+        actual_address: Фактический адрес
+        inn: ИНН
+        kpp: КПП
+        cheking_account: Расчетный счет
+        bank: Банк
+        correspondent_account: Корр. счет
+        bik: БИК
+        ogrn: ОГРН
+        ceo: Генеральный директор
+        chief_accountant: Главный бухгалтер
+        phone: Телефон
+        email: Электронная почта
+      location:
+        logo: Логотип
+        short_description: Краткое описание
+        average_check: Средний чек
+      custom_registration:
+        inn_ogrn: "ИНН или ОГРН"
+        admin_email: Email
+        password: Пароль
+        password_confirmation: Подтвереждение пароля
+        name: Имя
+        surname: Фамилия
+        location_title: Название заведения
+        category_id: Категория
+        short_description: Краткое описание
+        website: Вебсайт
+        logo: Логотип
+        preview: Превью
+      review:
+        text: Текст отзыва
+      tip:
+        amount: Сумма чаевых
+      category:
+        name: Наименование категории
+        slug: "ЧПУ(slug)"
+        icon_class: Класс для иконки
+      personal_category:
+        name: Наименование категории
+        slug: "ЧПУ(slug)"
+        icon_class: Класс для иконки
+        caption: Подпись
+        button_text: Текст кнопки подробнее
+      personal_page:
+        personal_category: Категория
+        odnoklassniki: Одноклассники
+        vk: "VK"
+        website: Ссылка на сайт
+      page:
+        title: Заголовок
+        text: Текст
+        slug: "ЧПУ(slug)"
+      post:
+        title: Заголовок
+        text: Текст
+        slug: "ЧПУ(slug)"
+        seo_title: "SEO заголовок"
+        seo_description: "SEO описание"
+    # Examples
+    # labels:
+    #   defaults:
+    #     password: 'Password'
+    #   user:
+    #     new:
+    #       email: 'E-mail to sign in.'
+    #     edit:
+    #       email: 'E-mail.'
+    # hints:
+    #   defaults:
+    #     username: 'User name to sign in.'
+    #     password: 'No special characters, please.'
+    # include_blanks:
+    #   defaults:
+    #     age: 'Rather not say'
+    # prompts:
+    #   defaults:
+    #     age: 'Select your age'

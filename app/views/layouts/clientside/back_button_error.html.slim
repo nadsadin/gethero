@@ -1,0 +1,22 @@
+- content_for :content do
+  .drawer-frame-root
+    = render 'shared/clientside_menu'
+    .drawer-frame-app-content
+      header#top-app-bar.mdc-top-app-bar.mdc-top-app-bar--transparent.drawer-top-app-bar data-mdc-auto-init="MDCTopAppBar"
+        .mdc-top-app-bar__row
+          section.mdc-top-app-bar__section.mdc-top-app-bar__section--align-start
+            = link_to backlink, class: 'mobile-only back-link'
+              span.material-icons keyboard_arrow_left
+            = link_to root_path, class: 'mdc-top-app-bar__text-logo  mobile-hide'
+              |gethero
+            section.mdc-top-app-bar__section.mdc-top-app-bar__section--align-end
+              - if user_signed_in?
+                = render "shared/avatar_menu"
+              - else
+                = link_to t("sign_in"), new_user_session_path, class: 'mdc-top-app-bar__link'
+                = link_to t("sign_up"), new_user_registration_path, class: 'mdc-top-app-bar__link'
+      .drawer-main-content.mdc-p-0.body-bg-error
+        = render "shared/flash"
+        = yield
+= render template: "layouts/clientside_new"
+script

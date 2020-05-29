@@ -1,0 +1,47 @@
+.clientside{
+  @media only screen and (min-width: 840px){
+    .mdc-top-app-bar__navigation-icon, .mdc-top-app-bar__logo{
+      display: none;
+    }
+    .mobile-only{
+      display: none;
+    }
+  }
+  @media only screen and (max-width: 839.5px){
+    .mdc-drawer--permanent{
+      display: none;
+    }
+    .mdc-list-item{
+      height: 40px;
+      &__graphic{
+        display: none;
+      }
+    }
+    .mobile-hide{
+      display: none;
+    }
+  }
+  .footer-text{
+    font-weight: 300;
+    font-size: 9px;
+    line-height: 14px;
+    text-align: center;
+    color: rgba(173, 173, 173, 0.87);
+    margin-bottom: 16px;
+  }
+}
+.back-link{
+  padding: 4px;
+  box-sizing: border-box;
+  span{
+    font-size: 24px;
+  }
+}
+.mdc-top-app-bar--transparent{
+  .back-link{
+    color: #fff;
+  }
+}
+.mdc-top-app-bar__logo{
+  padding-left: 12px;
+}

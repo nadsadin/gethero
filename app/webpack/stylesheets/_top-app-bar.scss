@@ -1,0 +1,67 @@
+
+@import "~@material/top-app-bar/mdc-top-app-bar";
+.mdc-top-app-bar.mdc-top-app-bar--raised {
+  @include mdc-top-app-bar-fill-color-accessible(#FFFFFF);
+  @include mdc-top-app-bar-icon-ink-color(#C4C4C4);
+}
+.mdc-top-app-bar.mdc-top-app-bar--transparent {
+  @include mdc-top-app-bar-fill-color-accessible(transparent);
+  @include mdc-top-app-bar-icon-ink-color(#FFFFFF);
+  @media only screen and (max-width: 592px) {
+    @include mdc-top-app-bar-fill-color-accessible(rgba(0,0,0,0.2));
+  }
+  .mdc-top-app-bar__text-logo{
+    color: #FFFFFF;
+  }
+  .mdc-top-app-bar__link{
+    color: #FFFFFF;
+  }
+}
+.mdc-top-app-bar.mdc-top-app-bar--transparent-light {
+  @include mdc-top-app-bar-fill-color-accessible(transparent);
+  @include mdc-top-app-bar-icon-ink-color(#C4C4C4);
+}
+.mdc-top-app-bar__text-logo{
+  font-family: Questrial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  color: #212121;
+}
+.mdc-top-app-bar__link{
+  color: #212121;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+#avatar-menu-anchor{
+  cursor: pointer;
+  img{
+    width: 38px;
+    height: 38px;
+    border-radius: 100%;
+  }
+}
+.avatar-menu-info{
+  padding: 8px 16px;
+  min-width: 200px;
+  &-name{
+    font-weight: bold;
+  }
+  &-email{
+    font-size: 14px;
+  }
+  &-details{
+    font-size: 10px;
+    font-weight: 300;
+  }
+  &-link{
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1350px){
+  .mdc-top-app-bar{
+    padding-right: 150px;
+  }
+}

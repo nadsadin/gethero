@@ -1,0 +1,44 @@
+@import "~@material/animation/functions";
+@import "~@material/animation/variables";
+$preload-wrapper-width: 200px;
+$preload-inner-width: 50px;
+
+@keyframes horizontal_bounce {
+  0%{
+    transform: translateX(0);
+  }
+  50%{
+    transform: translateX($preload-wrapper-width - $preload-inner-width);
+  }
+  100%{
+    transform: translateX(0);
+  }
+}
+.preload{
+  position: absolute;
+  display: flex;
+  top:0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  background-color: rgba(255,255,255,0.7);
+  &__inner{
+    margin: 0 auto;
+    text-align: center;
+  }
+  &__text{
+    text-align: center;
+    padding: 30px 0;
+  }
+  &-animation{
+    &__wrapper{
+      width: $preload-wrapper-width;
+      margin-top: 140px;
+      text-align: left;
+    }
+    &__inner{
+      animation: horizontal_bounce 5s infinite $mdc-animation-sharp-curve-timing-function;
+    }
+  }
+}

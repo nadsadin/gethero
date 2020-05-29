@@ -1,0 +1,21 @@
+.mdc-media{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  &--center{
+    justify-content: center;
+  }
+}
+.mdc-avatar{
+  &__w-60{
+    width: 60px;
+    height: 60px;
+  }
+  &__w-30{
+    width: 30px;
+    height: 30px;
+  }
+  &__circle{
+    border-radius: 50%;
+  }
+}

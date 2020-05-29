@@ -1,0 +1,25 @@
+- content_for :content do
+  .drawer-frame-root
+    /= render 'shared/clientside_menu'
+    .drawer-frame-app-content
+      header#top-app-bar.mdc-top-app-bar.mdc-top-app-bar--transparent-light.drawer-top-app-bar data-mdc-auto-init="MDCTopAppBar"
+        .mdc-top-app-bar__row
+          section.mdc-top-app-bar__section.mdc-top-app-bar__section--align-start
+            = link_to root_path, class: 'mdc-top-app-bar__text-logo'
+              |gethero
+          section.mdc-top-app-bar__section.mdc-top-app-bar__section--align-end
+            /button.material-icons.mdc-top-app-bar__action-item aria-label="Favorite"  favorite
+            /button.material-icons.mdc-top-app-bar__action-item aria-label="Search"  search
+            /button.material-icons.mdc-top-app-bar__action-item aria-label=("Bookmark this page")  more_vert
+            /button.mdc-top-app-bar__action-item en
+            - if user_signed_in?
+              = render "shared/avatar_menu"
+            - else
+              = link_to t("sign_in"), new_user_session_path, class: 'mdc-top-app-bar__link'
+              = link_to t("sign_up"), new_user_registration_path, class: 'mdc-top-app-bar__link'
+      .drawer-main-content
+        .mdc-top-app-bar--fixed-adjust.mdc-px-2
+          = render "shared/flash"
+          = yield
+        = render "shared/footer"
+= render template: "layouts/clientside_new"

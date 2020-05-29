@@ -1,0 +1,17 @@
+- present(@personal_page) do |personal_page|
+  .personal-page-hero style="background-image: url(#{personal_page.cover_image_url})"
+    .personal-page-hero-avatar-wrap
+      - if personal_page.avatar.attached?
+        .personal-page-hero-avatar  style="background-image: url(#{url_for(personal_page.avatar)})"
+      - else
+        .personal-page-hero-no-avatar style="background-color: #{personal_page.avatar_background}"
+          = personal_page.name[0]
+  .mdc-layout-grid.mdc-layout-grid--narrow
+    .mdc-layout-grid__inner
+      .mdc-layout-grid__cell--span-12
+        .personal-page-title = personal_page.name
+        .personal-page-short-description = personal_page.short_description
+        .personal-page-about
+          .personal-page-about-title О себе
+          .ql-content
+            = personal_page.about.html_safe

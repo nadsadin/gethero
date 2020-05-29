@@ -1,0 +1,16 @@
+.post-hero style="background-image: url(#{url_for(@post.preview)})"
+  .post-info--wrap
+    h1.mdc-mb-1 = @post.title
+    .mdc-mb-2.mdc-typography-text--small
+      = Russian::strftime(@post.created_at, "%d %B %Y")
+    .breadcrumbs
+      => link_to 'Главная', root_path
+      |/
+      =< link_to 'Блог', blog_index_path
+      |/
+      =< link_to @post.title, blog_path(@post)
+.mdc-layout-grid.mdc-layout-grid--narrow
+  .mdc-layout-grid__inner
+    .mdc-layout-grid__cell--span-12
+      .ql-content
+        = @post.text.html_safe

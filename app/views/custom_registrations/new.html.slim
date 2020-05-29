@@ -1,0 +1,26 @@
+/- content_for :scripts do
+  = javascript_pack_tag 'custom_registrations'
+- content_for :styles do
+  = stylesheet_pack_tag 'custom_registrations'
+.mdc-layout-grid
+  .mdc-layout-grid__inner
+    .mdc-layout-grid__cell--span-8-desktop
+      = render 'form'
+    .mdc-layout-grid__cell--span-4-desktop
+      .mdc-layout-grid__cell
+        .mdc-card.mdc-card__location
+          .mdc-card__primary-action
+            .mdc-card__media.mdc-card__media--16-9#location_bg style="background-image: url(#{asset_pack_path('media/images/preview.png')})"
+            .company-stars
+              = rating_stars(4)
+            .company-logo-wrap
+              .company-logo#location_logo style="background-image: url(#{asset_pack_path('media/images/company-logo.png')})"
+            .mdc-p-2
+              .location-title#location_title Название
+              .location-description#location_category Категория
+              .location-description#location_description Краткое описание
+              .mdc-pt-2
+                .location-info#location_address Адрес
+                .location-info#location_phone +7 000 000 0000
+                .location-info#location_website заведение.рф
+      #company_info.mdc-my-3

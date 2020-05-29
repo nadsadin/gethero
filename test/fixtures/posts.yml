@@ -1,0 +1,34 @@
+# == Schema Information
+#
+# Table name: posts
+#
+#  id              :bigint           not null, primary key
+#  description     :string
+#  seo_description :string
+#  seo_title       :string
+#  slug            :string
+#  text            :text
+#  title           :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+# Indexes
+#
+#  index_posts_on_slug  (slug) UNIQUE
+#
+
+one:
+  title: MyString
+  description: MyString
+  text: MyText
+  slug: MyString
+  seo_title: MyString
+  seo_description: MyString
+
+two:
+  title: MyString
+  description: MyString
+  text: MyText
+  slug: MyString
+  seo_title: MyString
+  seo_description: MyString

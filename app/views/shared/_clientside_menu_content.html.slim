@@ -1,0 +1,13 @@
+nav.mdc-list
+  .mdc-list-item.mdc-list-item--activated.mdc-drawer-list-item-fix
+  /- @menu_categories.each do |menu_category|
+    = link_to category_path(menu_category.slug), class: "mdc-list-item #{'mdc-list-item--activated' if @category && menu_category==@category}"
+      span.mdc-list-item__text = menu_category.plural
+  /= link_to personal_pages_path, class: "mdc-list-item #{'mdc-list-item--activated' if 'personal_pages'==(params[:controller])}"
+    span.mdc-list-item__text Частные лица
+  - if signed_in?
+    = link_to destroy_user_session_path, method: 'delete', class: 'mdc-list-item'
+      span.mdc-list-item__text Выйти
+  - else
+    = link_to new_user_session_path, class: 'mdc-list-item'
+      span.mdc-list-item__text Войти

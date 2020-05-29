@@ -1,0 +1,4 @@
+li
+  = link_to category_path(menu_category.slug)
+    = content_tag :i, '' , class: menu_category.icon_class if menu_category.icon_class.present?
+    p = menu_category.name

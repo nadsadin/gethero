@@ -1,0 +1,108 @@
+.mdc-card{
+  &-content{
+    padding: 16px;
+  }
+  &--fixed{
+    position: fixed;
+  }
+}
+.product-card{
+  margin-bottom: 32px;
+  &-muted{
+    color: rgba(0,0,0,.6);
+    margin: 10px 0;
+  }
+}
+.categories-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: -5px;
+  margin-right: -5px;
+}
+.category-card{
+  border-radius: 6px;
+  padding: 8px 16px;
+  height: 180px;
+  width: 160px;
+  display: flex;
+  margin-left: 5px;
+  margin-right: 5px;
+  flex-direction: column;
+  background-size: cover;
+  background-color: #acacac;
+  box-sizing: border-box;
+  &-title{
+    font-weight: bold;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.87);
+  }
+}
+.personal-page-card{
+  //display: flex;
+  //flex-direction: row;
+  //box-shadow: 0px 0px 5px rgba(146, 146, 146, 0.25);
+  //padding: 16px;
+  //box-sizing: border-box;
+  //justify-content: space-between;
+  margin-bottom: 24px;
+  margin-left: 24px;
+  &:first-of-type{
+    margin-left: 0;
+  }
+  &-title{
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 8px;
+    color: rgba(0, 0, 0, 0.87);
+  }
+  &-description{
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+    color: rgba(0, 0, 0, 0.6);
+  }
+  &-action{
+    flex-shrink: 0;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+  }
+  &-image{
+    width: 165px;
+    height: 195px;
+    border-radius: .6rem;
+    background-clip: content-box;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #eaebfa;
+    display: block;
+    position: relative;
+    overflow: hidden;
+  }
+}
+.cards-line{
+  display: flex;
+  width: 100%;
+  //justify-content: space-between;
+  //overflow-x: auto;
+  //&::-webkit-scrollbar-track
+  //{
+  //  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  //  background-color: #F5F5F5;
+  //}
+  //
+  //&::-webkit-scrollbar
+  //{
+  //  width: 3px;
+  //  height: 6px;
+  //  background-color: #F5F5F5;
+  //}
+  //
+  //&::-webkit-scrollbar-thumb
+  //{
+  //  background-color: #000000;
+  //}
+}

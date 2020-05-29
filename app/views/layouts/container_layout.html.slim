@@ -1,0 +1,6 @@
+- content_for :content do
+  .mdc-layout-grid
+    .mdc-layout-grid__inner
+      .mdc-layout-grid__cell--span-12
+        = yield
+= render template: "layouts/application"

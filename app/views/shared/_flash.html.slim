@@ -1,0 +1,14 @@
+- if flash[:notice]
+  .mdc-snackbar data-mdc-auto-init="MDCSnackbar"
+    .mdc-snackbar__surface
+      .mdc-snackbar__label aria-live="polite" role="status"
+        = flash[:notice]
+      .mdc-snackbar__actions
+        button.mdc-icon-button.mdc-snackbar__dismiss.material-icons title="Закрыть"  close
+- if flash[:alert]
+  .mdc-snackbar data-mdc-auto-init="MDCSnackbar"
+    .mdc-snackbar__surface
+      .mdc-snackbar__label aria-live="polite" role="status"
+        = flash[:alert]
+      .mdc-snackbar__actions
+        button.mdc-icon-button.mdc-snackbar__dismiss.material-icons title="Закрыть"  close

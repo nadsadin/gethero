@@ -1,0 +1,22 @@
+h1 Категории
+
+- if policy(:category).new?
+  = link_to new_admin_category_path, class: 'mdc-fab mdc-fab--absolute'
+    .mdc-fab__icon.material-icons add
+
+table
+  thead
+    tr
+      th Название категории
+      th ЧПУ
+      th
+      th
+
+  tbody
+    - @categories.each do |category|
+      tr
+        td = category.name
+        td = category.slug
+        td = link_to 'edit', edit_admin_category_path(category), class: 'mdc-icon-button material-icons' if policy(category).edit?
+        td = link_to 'delete', [:admin, category], data: { confirm: 'Вы уверены?' }, method: :delete, class: 'mdc-icon-button material-icons' if policy(category).destroy?
+

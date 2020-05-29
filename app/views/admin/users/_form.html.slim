@@ -1,0 +1,19 @@
+= simple_form_for([:admin, @user]) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  div = image_tag @user.avatar.variant(resize: "100 x100") if @user.avatar.attached?
+  = f.input :avatar
+  = f.input :name, required: true
+  = f.input :midname
+  = f.input :surname, required: true
+  /= f.input :dob, as: :string, input_html: {class: 'mdc-datepicker', placeholder: 'ДД.ММ.ГГГГ'}
+  = f.input :phone, required: true
+  - if current_user.admin? || current_user.celebrity?
+    = f.input :inn, required: true
+  /- if current_user.admin?
+    = f.association :role
+
+  .form-actions
+    = f.button :submit
+script type="text/javascript" src="https://cdn.rawgit.com/FreddyFY/material-datepicker/1.0.9/dist/material-datepicker-with-moment-js.min.js" data-turbolinks=""

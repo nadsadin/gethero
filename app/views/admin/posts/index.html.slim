@@ -1,0 +1,24 @@
+h1 Посты
+
+- if policy(:post).new?
+  = link_to new_admin_post_path, class: 'mdc-fab mdc-fab--absolute'
+    .mdc-fab__icon.material-icons add
+
+table
+  thead
+    tr
+      th Заголовок страницы
+      th ЧПУ
+      th
+      th
+      th
+
+  tbody
+    - @posts.each do |post|
+      tr
+        td = post.title
+        td = post.slug
+        td = link_to 'search', blog_path(post.slug), class: 'mdc-icon-button material-icons' if policy(post).edit?
+        td = link_to 'edit', edit_admin_post_path(post), class: 'mdc-icon-button material-icons' if policy(post).edit?
+        td = link_to 'delete', [:admin, post], data: { confirm: 'Вы уверены?' }, method: :delete, class: 'mdc-icon-button material-icons' if policy(post).destroy?
+

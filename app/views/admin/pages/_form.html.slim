@@ -1,0 +1,48 @@
+= simple_form_for([:admin, @page], html: {class: 'quill-form'}) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.input :title, required: true
+    = f.input :slug, required: true
+    .mdc-my-2
+      .mdc-mb-1 Текст страницы*
+      = f.input :text, as: :hidden, :wrapper => false, required: true
+      #quill-toolbar
+        span.ql-formats
+          select.ql-font
+          select.ql-size
+        span.ql-formats
+          button.ql-bold
+          button.ql-italic
+          button.ql-underline
+          button.ql-strike
+        span.ql-formats
+          select.ql-color
+          select.ql-background
+        span.ql-formats
+          button.ql-script value="sub"
+          button.ql-script value="super"
+        span.ql-formats
+          button.ql-header value="1"
+          button.ql-header value="2"
+          button.ql-blockquote
+          button.ql-code-block
+        span.ql-formats
+          button.ql-list value="ordered"
+          button.ql-list value="bullet"
+          button.ql-indent value="-1"
+          button.ql-indent value="+1"
+        span.ql-formats
+          button.ql-direction value="rtl"
+          select.ql-align
+        span.ql-formats
+          button.ql-link
+          button.ql-image
+        /button.ql-video
+        span.ql-formats
+          button.ql-clean
+      #quill-editor.ql-content
+        = raw sanitize @page.text, tags: %w(strong em a img p br s ol ul li h1 h2 h3 h4 h5 h6 blockquote u i pre), attributes: %w(href src class style)
+  .form-actions
+    = f.button :submit

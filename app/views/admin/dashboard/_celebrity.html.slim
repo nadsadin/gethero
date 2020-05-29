@@ -1,0 +1,18 @@
+-unless current_user.account_filled?
+  .mdc-mb-2
+    |Чтоб начать получать чаевые необходимо заполнить данные о себе.
+  .mdc-mb-2
+    = link_to 'Заполнить аккаунт', edit_admin_user_path(current_user), class: 'mdc-button mdc-button--unelevated mdc-button-shaped mdc-button--ui-width-240'
+- else
+  .mdc-mb-2
+    - if current_user.personal_page.present?
+      .mdc-mb-2 = link_to 'Редактировать личную страницу', edit_admin_personal_page_path(current_user.personal_page)
+      .mdc-mb-2 = link_to 'Просмотреть личную страницу', personal_page_path(current_user.personal_page)
+      /img.mdc-mb-2 src="https://chart.googleapis.com/chart?chs=320x320&cht=qr&chl=#{short_id_url(short_id: current_user.personal_page.short_id.short_id)}&choe=UTF-8" alt="QR code"
+      br
+      /= link_to 'Скачать svg', url_for(current_user.personal_page.qr_code), download: true
+    - else
+      .mdc-mb-1 Данные аккаунта заполнены. Теперы можно приступить к созданию личной страницы для получения чаевых от клиентов.
+      = link_to 'Создать личную страницу', new_admin_personal_page_path
+  .mdc-mb-2
+    = link_to 'Редактировать аккаунт', edit_admin_user_path(current_user)

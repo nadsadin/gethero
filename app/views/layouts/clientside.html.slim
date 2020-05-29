@@ -1,0 +1,85 @@
+doctype html
+html
+  head
+    title
+      | Tips
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    = csrf_meta_tags
+    = csp_meta_tag
+    link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
+    = stylesheet_pack_tag 'clientside'
+    = yield(:styles)
+    = javascript_pack_tag 'clientside'
+    /= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = yield(:scripts)
+  body.mdc-typography
+    /= console if Rails.env.development?
+    .Catalog
+      #left_menu.LeftBlock
+        .LeftBlock_content
+          = link_to root_path, class: "logo"
+            svg fill="none" height="50" viewbox=("0 0 50 50") width="50" xmlns="http://www.w3.org/2000/svg"
+              rect fill="#5B0F80" height="50" rx="25" width="50" /
+              path d="M13.0822 17.796H10.6222V15.6H18.3742V17.796H15.9142V24H13.0822V17.796ZM19.1098 15.6H21.9418V24H19.1098V15.6ZM27.3491 15.6C28.1251 15.6 28.8011 15.728 29.3771 15.984C29.9531 16.24 30.3971 16.608 30.7091 17.088C31.0211 17.568 31.1771 18.128 31.1771 18.768C31.1771 19.408 31.0211 19.968 30.7091 20.448C30.3971 20.928 29.9531 21.296 29.3771 21.552C28.8011 21.808 28.1251 21.936 27.3491 21.936H26.1371V24H23.3051V15.6H27.3491ZM27.1691 19.752C27.5531 19.752 27.8411 19.668 28.0331 19.5C28.2251 19.324 28.3211 19.08 28.3211 18.768C28.3211 18.456 28.2251 18.216 28.0331 18.048C27.8411 17.872 27.5531 17.784 27.1691 17.784H26.1371V19.752H27.1691ZM35.3551 24.192C34.6591 24.192 33.9791 24.116 33.3151 23.964C32.6591 23.804 32.1191 23.592 31.6951 23.328L32.6071 21.264C33.0071 21.496 33.4551 21.684 33.9511 21.828C34.4471 21.964 34.9231 22.032 35.3791 22.032C35.7711 22.032 36.0511 21.996 36.2191 21.924C36.3871 21.844 36.4711 21.728 36.4711 21.576C36.4711 21.4 36.3591 21.268 36.1351 21.18C35.9191 21.092 35.5591 20.996 35.0551 20.892C34.4071 20.756 33.8671 20.612 33.4351 20.46C33.0031 20.3 32.6271 20.044 32.3071 19.692C31.9871 19.332 31.8271 18.848 31.8271 18.24C31.8271 17.712 31.9751 17.232 32.2711 16.8C32.5671 16.368 33.0071 16.028 33.5911 15.78C34.1831 15.532 34.8991 15.408 35.7391 15.408C36.3151 15.408 36.8791 15.472 37.4311 15.6C37.9911 15.72 38.4831 15.9 38.9071 16.14L38.0551 18.192C37.2311 17.776 36.4511 17.568 35.7151 17.568C34.9871 17.568 34.6231 17.744 34.6231 18.096C34.6231 18.264 34.7311 18.392 34.9471 18.48C35.1631 18.56 35.5191 18.648 36.0151 18.744C36.6551 18.864 37.1951 19.004 37.6351 19.164C38.0751 19.316 38.4551 19.568 38.7751 19.92C39.1031 20.272 39.2671 20.752 39.2671 21.36C39.2671 21.888 39.1191 22.368 38.8231 22.8C38.5271 23.224 38.0831 23.564 37.4911 23.82C36.9071 24.068 36.1951 24.192 35.3551 24.192ZM19.4628 33.56H18.3468V35H15.5988V33.56H11.2428L11.2428 31.76L14.8068 26.6H17.7108L14.5428 31.364H15.6828V30.08H18.3468V31.364H19.4628V33.56ZM27.6938 35L27.6698 31.172L25.8458 34.244H24.5978L22.7738 31.304V35H20.1938V26.6H22.5218L25.2578 31.076L27.9218 26.6H30.2498L30.2738 35H27.6938ZM38.627 32.864V35H31.643V26.6H38.471V28.736H34.427V29.72H37.979V31.76H34.427V32.864H38.627Z" fill="white" /
+          ul.left-menu
+            li
+              = link_to root_path
+                /! img src="assets/img/menu-1.png" alt=""
+                i.fas.fa-home
+                p Главная
+            = render partial: 'shared/menu_category', collection: @menu_categories, as: :menu_category
+            /--
+              li
+                a href="#"
+                  i.fas.fa-coffee
+                  p Рестораны и кафе
+              li
+                a href="#"
+                  i.fas.fa-truck
+                  p Службы доставки
+              li
+                a href="#"
+                  i.fas.fa-cut
+                  p Салоны красоты
+              li
+                a href="#"
+                  i.fas.fa-futbol
+                  p Спорт
+              li
+                a href="#"
+                  i.fas.fa-cocktail
+                  p Клубы
+              li
+                a href="#"
+                  i.fas.fa-car-alt
+                  p Авто и АЗС
+              li
+                a href="#"
+                  i.fas.fa-tools
+                  p Техника и сервис
+              li style=("margin-bottom: 40px")
+                a href="#"
+                  i.fas.fa-handshake
+                  p Благотворительность
+            li
+              a href="#"
+                i.far.fa-bell
+            li
+              a href="#"
+                i.far.fa-heart
+      .RightBlock
+        header.mdc-top-app-bar
+          .mdc-top-app-bar__row
+            section.mdc-top-app-bar__section.mdc-top-app-bar__section--align-end
+              img#sidenav_drop_1.burger-button alt="" src=asset_pack_path('media/images/burger-button.png') /
+              button.button.violet-btn
+                a href="#"  Служба поддержки
+              button.person-button
+                a href="#"
+              p.client
+                | Владислав
+                br
+                span.violet-text Клиент
+        #closed_menu.content-container
+          = content_for?(:content) ? yield(:content) : yield

@@ -1,0 +1,8 @@
+h1 Блог
+.mdc-my-2.mdc-layout-grid__inner
+  - @posts.each do |post|
+    .mdc-layout-grid__cell
+      = link_to blog_path(post), class: 'blog-card'
+        .blog-card-primary-text ЧАЕВЫЕ
+        .blog-card-title = post.title
+        .blog-card-date = Russian::strftime(post.created_at, "%d %B %Y")

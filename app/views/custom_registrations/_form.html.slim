@@ -1,0 +1,60 @@
+= simple_form_for(@custom_registration, html: {class: 'smart_wizard_form ' }) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  ul.card
+    /li
+      a.mb-3 href="#smartwizard-step-0"
+        span.sw-done-icon.ion.ion-md-checkmark
+        span.sw-icon.fas.fa-info
+        /.text-muted.small &nbsp;
+        | Информация
+    li
+      a.mb-3 href="#smartwizard-step-1"
+        span.sw-done-icon.material-icons done_outline
+        span.sw-number 1
+        /.text-muted.small Шаг 1
+        | Создание компании
+    li
+      a.mb-3 href="#smartwizard-step-2"
+        span.sw-done-icon.material-icons done_outline
+        span.sw-number 2
+        /.text-muted.small Шаг 2
+        | Создание заведения
+    li
+      a.mb-3 href="#smartwizard-step-3"
+        span.sw-done-icon.material-icons done_outline
+        span.sw-number 3
+        /.text-muted.small Шаг 3
+        | Создание аккаунта
+  .mb-3
+    /#smartwizard-step-0.card.animated.fadeIn
+      .card-body.w-50.m-auto
+        .h5.text-center  Приветствуем вас в Placto!
+        .pb-2.text-center Для регистрации необходимо воспользоваться простым мастером подключения, состоящим из трех этапов - выбора роли компании, создания карточки на основе ИНН или ОГРН, создания аккаунта администратора компании.
+    #smartwizard-step-1.card.animated.fadeIn
+      .card-body
+        h3  Создание компании
+        = f.input :inn_ogrn, :input_html => { :type => "number" }, required: true, hint: 'Введите ИНН/ОГРН, чтоб найти информацию о вашей компании'
+
+    #smartwizard-step-2.card.animated.fadeIn
+      .card-body
+        h3  Информация о заведении
+        .mdc-my-2
+          = f.input :logo, as: :file
+        .mdc-my-2
+          = f.input :preview, as: :file
+        = f.input :location_title, required: true, hint: 'Название заведения'
+        = f.input :category_id, as: :select, collection: Category.all, required: true
+        = f.input :short_description, required: true, hint: 'Краткое описание'
+        = f.input :address, required: true, hint: 'Адрес заведения'
+        = f.input :phone, hint: 'Контактный телефон заведения'
+        = f.input :website, hint: 'Вебсайт заведения'
+    #smartwizard-step-3.card.animated.fadeIn
+      .card-body
+        h3  Создание администратора компании
+        = f.input :email, required: true, hint: 'Введите email'
+        = f.input :password, required: true, hint: 'Придумайте пароль'
+        = f.input :password_confirmation, required: true, hint: 'Подтвердите пароль'
+        = f.input :name, required: true, hint: 'Введите имя'
+        = f.input :surname, required: true, hint: 'Введите фамилию'

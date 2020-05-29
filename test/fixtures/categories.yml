@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: categories
+#
+#  id         :bigint           not null, primary key
+#  ancestry   :string
+#  name       :string
+#  plural     :string
+#  slug       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+# Indexes
+#
+#  index_categories_on_ancestry  (ancestry)
+#  index_categories_on_slug      (slug) UNIQUE
+#
+
+one:
+  name: MyString
+  slug: MyString
+  plural: MyString
+  ancestry: MyString
+
+two:
+  name: MyString
+  slug: MyString
+  plural: MyString
+  ancestry: MyString

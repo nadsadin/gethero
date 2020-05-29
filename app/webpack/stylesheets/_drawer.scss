@@ -1,0 +1,63 @@
+@use "@material/drawer/mixins" as mdcDrawer;
+.mdc-drawer{
+  //@include mdc-drawer-width(100px);
+}
+.mdc-drawer--clientside{
+  @include mdcDrawer.width(250px);
+  @include mdcDrawer.activated-overlay-color(#fff);
+  .mdc-list-item{
+    &__graphic{
+      display: block;
+      align-self: center;
+      margin-right: 0;
+      text-align: center;
+      font-size: 18px;
+    }
+    &__text{
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 19px;
+      line-height: 200%;
+    }
+    &--activated:before{
+      background-color: #fff;
+    }
+  }
+}
+
+.drawer-frame-root {
+  display: flex;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+}
+
+.drawer-app-content {
+  flex: auto;
+  overflow: auto;
+}
+
+.drawer-main-content {
+  overflow: auto;
+  height: 100%;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer-top-app-bar {
+  position: absolute;
+}
+
+.drawer-frame-app-content {
+  position: relative;
+  width: 100%;
+  transform: translate(0, 0);
+}
+.mdc-drawer-list-item-fix{
+  width: 0;
+  height: 0;
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}

@@ -1,0 +1,69 @@
+@import "~@material/button/mdc-button";
+$white: #fff;
+$height_lg: 50px;
+$height_xl: 60px;
+.mdc-button-shaped{
+  border-radius: 21px;
+  &.mdc-button--dense{
+    border-radius: 16px;
+  }
+}
+.mdc-button{
+  text-align: center;
+  &--gray{
+    @include mdc-button-ink-color(#757575);
+    @include mdc-states(#757575);
+    &-outlined{
+      @include mdc-button-ink-color(#757575);
+      @include mdc-button-outline-color(#757575);
+    }
+    &.mdc-button--unelevated{
+      @include mdc-button-filled-accessible(#C7C0D2);
+      @include mdc-button-ink-color($white);
+      @include mdc-states(#C7C0D2);
+    }
+  }
+  &--ui-width-200{
+    min-width: 200px;
+  }
+  &--ui-width-240{
+    min-width: 240px;
+  }
+  &--white{
+    @include mdc-button-ink-color($white);
+    @include mdc-states($white);
+    &-raised{
+      @include mdc-button-filled-accessible($white);
+    }
+    &-outlined{
+      @include mdc-button-ink-color($white);
+      @include mdc-button-outline-color($white);
+    }
+  }
+  &--lg{
+    @include mdc-button-height($height_lg, $query: mdc-feature-all());
+    font-size: 1rem;
+    &.mdc-button-shaped{
+      @include mdc-button-shape-radius($height_lg/2);
+    }
+  }
+  &--xl{
+    @include mdc-button-height($height_xl, $query: mdc-feature-all());
+    &.mdc-button-shaped{
+      @include mdc-button-shape-radius($height_xl/2);
+    }
+    font-size: 1.25rem;
+  }
+}
+.mdc-fab--absolute{
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 4;
+}
+.button-wrap{
+  margin: 16px 0;
+}
+.mdc-icon-button--raised{
+  color: #C4C4C4;
+}

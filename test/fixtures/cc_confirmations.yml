@@ -1,0 +1,36 @@
+# == Schema Information
+#
+# Table name: cc_confirmations
+#
+#  id                 :bigint           not null, primary key
+#  amount             :string
+#  status             :integer
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  mnt_transaction_id :string
+#  transaction_id     :string
+#  user_id            :bigint
+#
+# Indexes
+#
+#  index_cc_confirmations_on_transaction_id  (transaction_id) UNIQUE
+#  index_cc_confirmations_on_user_id         (user_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (user_id => users.id)
+#
+
+one:
+  transaction_id: MyString
+  mnt_transaction_id: MyString
+  amount: MyString
+  status: 1
+  user: one
+
+two:
+  transaction_id: MyString
+  mnt_transaction_id: MyString
+  amount: MyString
+  status: 1
+  user: two

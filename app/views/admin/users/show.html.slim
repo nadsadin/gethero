@@ -1,0 +1,9 @@
+.mdc-layout-grid
+  .mdc-layout-grid__inner
+    .mdc-layout-grid__cell--span-12
+      - present(@user) do |user|
+        =
+
+      => link_to 'Edit', edit_admin_user_path(@user)
+      '|
+      =< link_to 'Back', admin_users_path

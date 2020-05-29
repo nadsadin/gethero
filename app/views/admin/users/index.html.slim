@@ -1,0 +1,28 @@
+.mdc-layout-grid
+  .mdc-layout-grid__inner
+    .mdc-layout-grid__cell--span-12
+      - if policy(:user).new?
+        = link_to new_admin_user_path, class: 'mdc-fab mdc-fab--absolute'
+          .mdc-fab__icon.material-icons add
+
+      h1 Пользователи
+      .mdc-data-table
+        table.mdc-data-table__table
+          thead
+            tr.mdc-data-table__header-row
+              th.mdc-data-table__header-cell ID
+              th.mdc-data-table__header-cell = t('email')
+              th.mdc-data-table__header-cell Имя
+              th.mdc-data-table__header-cell
+              th.mdc-data-table__header-cell
+              th.mdc-data-table__header-cell
+
+          tbody.mdc-data-table__content
+            - @users.each do |user|
+              tr.mdc-data-table__row
+                td.mdc-data-table__cell = user.id
+                td.mdc-data-table__cell = user.email
+                td.mdc-data-table__cell = "#{user.surname} #{user.name}"
+                td.mdc-data-table__cell = link_to 'search', [:admin, user], class: 'mdc-icon-button material-icons'  if policy(user).show?
+                td.mdc-data-table__cell = link_to 'edit', edit_admin_user_path(user), class: 'mdc-icon-button material-icons' if policy(user).edit?
+                td.mdc-data-table__cell = link_to 'delete', [:admin, user], data: {confirm: 'Вы уверены?'}, method: :delete, class: 'mdc-icon-button material-icons' if policy(user).destroy?

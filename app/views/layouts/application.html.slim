@@ -1,0 +1,42 @@
+doctype html
+html
+  head
+    title
+      | GetHero
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    link rel="manifest" href="/manifest.json"
+    meta name="theme-color" content="#C50001"
+    = csrf_meta_tags
+    = csp_meta_tag
+    link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
+    link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Questrial&display=swap"
+    = stylesheet_pack_tag 'application'
+    = yield(:styles)
+    = javascript_pack_tag 'application'
+    /= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = yield(:scripts)
+  body.mdc-typography.clientside
+    /= console if Rails.env.development?
+    .drawer-frame-root
+      /= render 'shared/menu'
+      .drawer-frame-app-content
+        header#top-app-bar.mdc-top-app-bar.mdc-top-app-bar--raised data-mdc-auto-init="MDCTopAppBar"
+          .mdc-top-app-bar__row
+            section.mdc-top-app-bar__section.mdc-top-app-bar__section--align-start
+              = link_to root_path, class: 'mdc-top-app-bar__text-logo'
+                |gethero
+            section.mdc-top-app-bar__section.mdc-top-app-bar__section--align-end
+              - if user_signed_in?
+                = render "shared/avatar_menu"
+              - else
+                = link_to t("sign_in"), new_user_session_path, method: 'delete', class: 'mdc-top-app-bar__link'
+                = link_to t("sign_up"), new_user_registration_path, class: 'mdc-top-app-bar__link'
+              /button.material-icons.mdc-top-app-bar__action-item aria-label="Favorite"  favorite
+              /button.material-icons.mdc-top-app-bar__action-item aria-label="Search"  search
+              /button.material-icons.mdc-top-app-bar__action-item aria-label=("Bookmark this page")  more_vert
+              /button.mdc-top-app-bar__action-item en
+        .drawer-main-content
+          .mdc-top-app-bar--fixed-adjust
+            = render "shared/flash"
+            = content_for?(:content) ? yield(:content) : yield

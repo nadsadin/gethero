@@ -1,0 +1,257 @@
+@import "./variables";
+@import "~@material/theme/mdc-theme";
+@import "~material-components-web/material-components-web";
+.breadcrumbs, .breadcrumbs a{
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 120%;
+  color: #757575;
+}
+.mdc-m{
+  &-auto{
+    margin: auto;
+  }
+}
+.ui-w-300{
+  width: 300px;
+}
+.ui-w-full{
+  width: 100%;
+}
+.mdc-input__fullwidth{
+  .mdc-text-field, .mdc-select{
+    width: 100%;
+  }
+}
+.form-stars{
+  .ui-star{
+    float: right;
+  }
+  &:not(:checked) > .ui-star:hover> *:first-child, &:not(:checked) > .ui-star:hover ~ .ui-star> *:first-child, &> input:checked ~ .ui-star> *:first-child{
+    display: block;
+  }
+}
+
+.mh-100vh{
+  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
+  box-sizing: border-box;
+}
+.d-flex{
+  display: flex!important;
+}
+
+.input-hidden{
+  display: inline;
+  width: 0;
+  height: 0;
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+.hidden{
+  display: none!important;
+  width: 0;
+  height: 0;
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+/* paddings */
+.mdc-m{
+  &-auto{
+    margin: auto!important;
+  }
+  &t-auto{
+    margin-top: auto!important;
+  }
+  &b-auto{
+    margin-bottom: auto!important;
+  }
+  &l-auto{
+    margin-left: auto!important;
+  }
+  &r-auto{
+    margin-right: auto!important;
+  }
+  &y-auto{
+    margin-top: auto!important;
+    margin-bottom: auto!important;
+  }
+  &x-auto{
+    margin-left: auto!important;
+    margin-right: auto!important;
+  }
+}
+@for $i from 0 through 8{
+  .mdc{
+    &-m{
+      &-#{$i}{
+        margin: #{$i*8}px!important;
+      }
+      &t-#{$i}{
+        margin-top: #{$i*8}px!important;
+      }
+      &b-#{$i}{
+        margin-bottom: #{$i*8}px!important;
+      }
+      &l-#{$i}{
+        margin-left: #{$i*8}px!important;
+      }
+      &r-#{$i}{
+        margin-right: #{$i*8}px!important;
+      }
+      &y-#{$i}{
+        margin-top: #{$i*8}px!important;
+        margin-bottom: #{$i*8}px!important;
+      }
+      &x-#{$i}{
+        margin-left: #{$i*8}px!important;
+        margin-right: #{$i*8}px!important;
+      }
+    }
+    &-p{
+      &-#{$i}{
+        padding: #{$i*8}px!important;
+      }
+      &t-#{$i}{
+        padding-top: #{$i*8}px!important;
+      }
+      &b-#{$i}{
+        padding-bottom: #{$i*8}px!important;
+      }
+      &l-#{$i}{
+        padding-left: #{$i*8}px!important;
+      }
+      &r-#{$i}{
+        padding-right: #{$i*8}px!important;
+      }
+      &y-#{$i}{
+        padding-top: #{$i*8}px!important;
+        padding-bottom: #{$i*8}px!important;
+      }
+      &x-#{$i}{
+        padding-left: #{$i*8}px!important;
+        padding-right: #{$i*8}px!important;
+      }
+    }
+  }
+}
+/*ui stars */
+
+.ui-stars {
+  display: inline-block;
+  vertical-align: middle;
+  white-space: nowrap;
+  &.large{
+    font-size: 45px;
+  }
+}
+
+.ui-star {
+  position: relative;
+  display: block;
+  float: left;
+  width: $ui-star-size;
+  height: $ui-star-size;
+  text-decoration: none !important;
+  font-size: $ui-star-size;
+  line-height: 1;
+  user-select: none;
+
+  [dir=rtl] & {
+    float: right;
+  }
+
+  & + & {
+    margin-left: $ui-stars-spacer;
+
+    [dir=rtl] & {
+      margin-right: $ui-stars-spacer;
+      margin-left: 0;
+    }
+  }
+
+  > *,
+  > *::before,
+  > *::after {
+    position: absolute;
+    left: $ui-star-size / 2;
+    height: 100%;
+    font-size: 1em;
+    line-height: 1;
+    transform: translateX(-50%);
+
+    [dir=rtl] & {
+      right: $ui-star-size / 2;
+      left: auto;
+      transform: translateX(50%);
+    }
+  }
+
+  > * {
+    top: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  > *:first-child {
+    z-index: 2;
+    display: none;
+    overflow: hidden;
+    color: $ui-star-filled-color;
+  }
+
+  // Default icon
+  > *:last-child {
+    z-index: 1;
+    display: block;
+    color: $ui-star-color;
+  }
+
+  &.half-filled > *:first-child {
+    width: 50%;
+    transform: translateX(-100%);
+
+    [dir=rtl] & {
+      transform: translateX(100%);
+    }
+  }
+
+  &.filled > *:first-child,
+  &.half-filled > *:first-child {
+    display: block;
+  }
+
+  &.filled > *:last-child {
+    display: none;
+  }
+}
+
+.info-screen{
+  &-container{
+    padding-top: 170px;
+  }
+}
+
+.footer{
+  &-container{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    text-align: center;
+  }
+  &-payment-methods{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 21px;
+    padding-top: 8px;
+    img{
+      margin: 0 8px;
+    }
+  }
+}

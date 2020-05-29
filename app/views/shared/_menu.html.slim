@@ -1,0 +1,13 @@
+aside.mdc-drawer.mdc-drawer--permanent.mdc-drawer--clientside
+  .mdc-drawer__header.mdc-pt-2
+    = link_to root_path, class: 'mdc-top-app-bar__text-logo'
+      |gethero
+  .mdc-drawer__content
+    = render 'shared/admin_menu_content'
+aside.mdc-drawer.mdc-drawer--modal.mdc-drawer--clientside
+  .mdc-drawer__header.mdc-pt-2
+    = link_to root_path, class: 'mdc-top-app-bar__text-logo'
+      |gethero
+  .mdc-drawer__content
+    = render 'shared/admin_menu_content'
+.mdc-drawer-scrim
