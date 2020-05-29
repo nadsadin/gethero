@@ -1,7 +1,7 @@
 = simple_form_for([:admin, @category]) do |f|
   = f.error_notification
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
-  =console
+  /=console
   .form-inputs
     = f.input :name
     = material_select 'category[parent_id]', 'Родитель', @parents, 'id', 'name', @category.parent_id

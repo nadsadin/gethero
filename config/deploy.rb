@@ -2,7 +2,7 @@
 lock "~> 3.14.0"
 
 set :application, "gethero"
-set :repo_url, "git@example.com:me/my_repo.git"
+set :repo_url, "git@github.com:nadsadin/gethero.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -42,3 +42,5 @@ set :rvm_ruby_version, '2.5.3'
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
+
+set :assets_prefix, 'packs'

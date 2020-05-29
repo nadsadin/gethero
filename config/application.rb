@@ -33,7 +33,7 @@ module Gethero
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     Raven.configure do |config|
-      config.dsn = 'https://ae6b28f2b76a43c380e78ae43c5a3a7c:cb78d844da414dbbad32640c5833b156@sentry.io/1725382'
+      config.dsn = 'https://d399f1eacb06455f8260e3376033c36b@o249473.ingest.sentry.io/5253385'
       config.processors -= [Raven::Processor::PostData] # Do this to send POST data
     end
   end
