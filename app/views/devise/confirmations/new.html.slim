@@ -6,5 +6,5 @@ h2
   .form-inputs
     = f.input :email, required: true, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), input_html: { autocomplete: "email" }, wrapper_html: {class: 'mdc-input__fullwidth'}
   .form-actions
-    = f.button :submit, 'Выслать', class: 'mdc-button--white'
+    = f.button :submit, 'Выслать'
 = render "devise/shared/links"

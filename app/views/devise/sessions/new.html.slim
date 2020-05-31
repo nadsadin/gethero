@@ -10,5 +10,5 @@ h2
     = f.input :password, required: false, input_html: { autocomplete: "current-password"}, wrapper_html: {class: 'mdc-input__fullwidth'}
     = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
   .form-actions
-    = f.button :submit, t(".sign_in"), class: 'mdc-button--white'
+    = f.button :submit, t(".sign_in")
 = render "devise/shared/links"

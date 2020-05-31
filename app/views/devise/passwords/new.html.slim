@@ -5,5 +5,5 @@ h2
   .form-inputs
     = f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" }, wrapper_html: {class: 'mdc-input__fullwidth'}
   .form-actions
-    = f.button :submit, t(".send_me_reset_password_instructions"), class: 'mdc-button--white'
+    = f.button :submit, t(".send_me_reset_password_instructions")
 = render "devise/shared/links"
