@@ -2,6 +2,7 @@ class Admin::PersonalPagesController < ApplicationController
 
   before_action :set_personal_page, only: [:edit, :update, :destroy]
   before_action :authorize_personal_page, only: [:edit, :update, :destroy]
+  before_action :set_categories, only: [:new, :create, :edit, :update]
 
   layout 'container_layout'
 
@@ -45,7 +46,7 @@ class Admin::PersonalPagesController < ApplicationController
   def update
     respond_to do |format|
       if @personal_page.update(personal_page_params)
-        format.html { redirect_to admin_personal_pages_path, notice: "Страница #{@personal_page.nickname} успешно обновлена!" }
+        format.html { redirect_to admin_root_path, notice: "Страница #{@personal_page.nickname} успешно обновлена!" }
         format.json { render :show, status: :ok, location: @personal_page }
       else
         format.html { render :edit }
@@ -67,10 +68,13 @@ class Admin::PersonalPagesController < ApplicationController
   def set_personal_page
     @personal_page = PersonalPage.friendly.find(params[:id])
   end
+  def set_categories
+    @root_categories = Category.roots
+  end
   def authorize_personal_page
     authorize @personal_page
   end
   def personal_page_params
-    params.require(:personal_page).permit(:about, :nickname, :preview, :avatar, :cover, :short_description, :name)
+    params.require(:personal_page).permit(:about, :nickname, :preview, :avatar, :cover, :short_description, :name, category_ids: [])
   end
 end

@@ -1,0 +1,10 @@
+.mdc-form-field.mdc-typography-text--left.d-flex
+  .mdc-checkbox
+    input.mdc-checkbox__native-control type="checkbox" required="true" id="personal_page_category_#{category.id}" name="personal_page[category_ids][]" value=category.id checked= (@personal_page.category_ids.include?(category.id) ? "checked" : nil)
+    .mdc-checkbox__background
+      svg.mdc-checkbox__checkmark viewbox=("0 0 24 24")
+        path.mdc-checkbox__checkmark-path d="M1.73,12.91 8.1,19.28 22.79,4.59" fill="none"
+      .mdc-checkbox__mixedmark
+    .mdc-checkbox__ripple
+  label for="personal_page_category_#{category.id}" class="mdc-typography-text--small"
+    = category.name
