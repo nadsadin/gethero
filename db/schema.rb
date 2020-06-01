@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_26_195715) do
+ActiveRecord::Schema.define(version: 2020_06_01_170618) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,7 +48,9 @@ ActiveRecord::Schema.define(version: 2020_05_26_195715) do
     t.integer "age_limit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "personal_page_id"
     t.index ["activity_type_id"], name: "index_activities_on_activity_type_id"
+    t.index ["personal_page_id"], name: "index_activities_on_personal_page_id"
     t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
@@ -181,6 +183,7 @@ ActiveRecord::Schema.define(version: 2020_05_26_195715) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "activities", "activity_types"
+  add_foreign_key "activities", "personal_pages"
   add_foreign_key "activities", "users"
   add_foreign_key "cc_confirmations", "users"
   add_foreign_key "personal_pages", "users"

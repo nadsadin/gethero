@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       get 'dashboard' => 'dashboard#index'
       resources :users
       resources :categories
+      resources :activity_types
       resources :withdrawals, only: [:index, :show, :new, :create] do
         get 'cc_confirmation', on: :collection
       end

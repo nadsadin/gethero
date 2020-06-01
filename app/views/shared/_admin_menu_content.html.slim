@@ -6,6 +6,7 @@ nav.mdc-list
     = menu_link 'Страницы', admin_pages_path, 'pages' if policy(:page).new?
     = menu_link 'Посты', admin_posts_path, 'landings' if policy(:post).new?
     = menu_link 'Категории', admin_categories_path, 'categories' if policy(:category).index?
+    = menu_link 'Типы активности', admin_activity_types_path, 'activity_types' if policy(:activity_type).index?
     = menu_link 'Вывод средств', admin_withdrawals_path, 'reviews' if policy(:withdrawal).index?
     = link_to destroy_user_session_path, method: 'delete', class: 'mdc-list-item'
       span.mdc-list-item__text = t("sign_out")

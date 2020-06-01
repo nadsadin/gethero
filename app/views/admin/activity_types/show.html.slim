@@ -1,0 +1,7 @@
+p
+  strong Наименование категории:
+  = @activity_type.name
+
+=> link_to 'Edit', edit_admin_activity_type_path(@activity_type)
+'|
+=< link_to 'Back', admin_activity_types_path

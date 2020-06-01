@@ -9,4 +9,7 @@
 #  updated_at :datetime         not null
 #
 class ActivityType < ApplicationRecord
+  has_many :activities
+  extend FriendlyId
+  friendly_id :name, use: [:slugged]
 end

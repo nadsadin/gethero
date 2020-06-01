@@ -4,6 +4,9 @@ ru:
       category:
         create: "Создать"
         update: "Обновить"
+      activity_type:
+        create: "Создать"
+        update: "Обновить"
       user:
         create: "Создать"
         update: "Обновить"
@@ -122,6 +125,9 @@ ru:
         text: Текст отзыва
       tip:
         amount: Сумма чаевых
+      activity_type:
+        name: Название типа
+        slug: "ЧПУ(slug)"
       category:
         name: Наименование категории
         slug: "ЧПУ(slug)"

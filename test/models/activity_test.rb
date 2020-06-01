@@ -13,16 +13,19 @@
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #  activity_type_id  :bigint
+#  personal_page_id  :bigint
 #  user_id           :bigint
 #
 # Indexes
 #
 #  index_activities_on_activity_type_id  (activity_type_id)
+#  index_activities_on_personal_page_id  (personal_page_id)
 #  index_activities_on_user_id           (user_id)
 #
 # Foreign Keys
 #
 #  fk_rails_...  (activity_type_id => activity_types.id)
+#  fk_rails_...  (personal_page_id => personal_pages.id)
 #  fk_rails_...  (user_id => users.id)
 #
 require 'test_helper'

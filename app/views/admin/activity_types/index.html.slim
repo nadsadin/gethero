@@ -1,0 +1,23 @@
+h1 Типы активности
+
+- if policy(:activity_type).new?
+  = link_to new_admin_activity_type_path, class: 'mdc-fab mdc-fab--absolute'
+    .mdc-fab__icon.material-icons add
+
+table
+  thead
+    tr
+      th Название типа активности
+      th ЧПУ
+      th
+      th
+
+  tbody
+    - @activity_types.each do |activity_type|
+      tr
+        
+        td = activity_type.name
+        td = activity_type.slug
+        td = link_to 'edit', edit_admin_activity_type_path(activity_type), class: 'mdc-icon-button material-icons' if policy(activity_type).edit?
+        td = link_to 'delete', [:admin, activity_type], data: { confirm: 'Вы уверены?' }, method: :delete, class: 'mdc-icon-button material-icons' if policy(activity_type).destroy?
+
