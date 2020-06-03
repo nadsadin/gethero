@@ -8,8 +8,10 @@
 #  date_end          :datetime
 #  date_start        :datetime
 #  description       :text
+#  name              :string
 #  payment_type      :integer
 #  short_description :string
+#  slug              :string
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #  activity_type_id  :bigint
@@ -29,6 +31,9 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Activity < ApplicationRecord
+  extend FriendlyId
+  friendly_id :name, use: [:slugged]
+  has_one_attached :preview
   belongs_to :activity_type
   belongs_to :user
 end
