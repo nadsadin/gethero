@@ -48,9 +48,14 @@ class User < ApplicationRecord
   enum role: [:admin, :celebrity, :user]
   has_one :personal_page
   has_one_attached :avatar
+  has_many :donates, -> {Donate.paid}, through: :personal_page
 
 
   def account_filled?
     name.present? && surname.present? && inn.present? && phone.present?
+  end
+  def update_balance
+    self.balance = donates.sum(:amount)-withdrawals.on_balance.sum(:amount)
+    save!
   end
 end

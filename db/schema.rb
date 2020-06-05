@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_03_190743) do
+ActiveRecord::Schema.define(version: 2020_06_04_220852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,6 +93,16 @@ ActiveRecord::Schema.define(version: 2020_06_03_190743) do
     t.index ["user_id"], name: "index_cc_confirmations_on_user_id"
   end
 
+  create_table "donates", force: :cascade do |t|
+    t.bigint "personal_page_id"
+    t.integer "amount"
+    t.integer "status"
+    t.string "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["personal_page_id"], name: "index_donates_on_personal_page_id"
+  end
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -111,6 +121,17 @@ ActiveRecord::Schema.define(version: 2020_06_03_190743) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["slug"], name: "index_pages_on_slug", unique: true
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.bigint "target_id"
+    t.string "target_type"
+    t.integer "status"
+    t.string "transaction_id"
+    t.integer "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["transaction_id"], name: "index_payments_on_transaction_id", unique: true
   end
 
   create_table "personal_pages", force: :cascade do |t|
@@ -188,6 +209,7 @@ ActiveRecord::Schema.define(version: 2020_06_03_190743) do
   add_foreign_key "activities", "personal_pages"
   add_foreign_key "activities", "users"
   add_foreign_key "cc_confirmations", "users"
+  add_foreign_key "donates", "personal_pages"
   add_foreign_key "personal_pages", "users"
   add_foreign_key "withdrawals", "users"
 end

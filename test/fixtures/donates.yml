@@ -1,0 +1,32 @@
+# == Schema Information
+#
+# Table name: donates
+#
+#  id               :bigint           not null, primary key
+#  amount           :integer
+#  comment          :string
+#  status           :integer
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  personal_page_id :bigint
+#
+# Indexes
+#
+#  index_donates_on_personal_page_id  (personal_page_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (personal_page_id => personal_pages.id)
+#
+
+one:
+  personal_page: one
+  amount: 1
+  status: 1
+  comment: MyString
+
+two:
+  personal_page: two
+  amount: 1
+  status: 1
+  comment: MyString

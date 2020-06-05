@@ -21,6 +21,7 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class PersonalPage < ApplicationRecord
+  include Rails.application.routes.url_helpers
   extend FriendlyId
   friendly_id :nickname
   belongs_to :user
@@ -28,4 +29,17 @@ class PersonalPage < ApplicationRecord
   has_one_attached :preview
   has_one_attached :avatar
   has_one_attached :cover
+  has_one_attached :qr_code
+  has_many :donates
+
+  after_save :update_qr
+
+  private
+
+  def update_qr
+    if(saved_change_to_nickname?)
+      svg = open("http://api.qrserver.com/v1/create-qr-code/?data=#{personal_page_url(self)}&size=2000x2000&format=svg")
+      self.qr_code.attach(io: svg, filename: "qr_code_#{nickname}.svg")
+    end
+  end
 end
