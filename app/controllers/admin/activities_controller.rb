@@ -27,7 +27,7 @@ class Admin::ActivitiesController<ApplicationController
     authorize @activity
     respond_to do |format|
       if @activity.save
-        format.html { redirect_to admin_activities_path, notice: "Страница #{@activity.nickname} создана успешно!" }
+        format.html { redirect_to admin_activities_path, notice: "Активность #{@activity.nickname} создана успешно!" }
         format.json { render :show, status: :created, location: @activity }
       else
         format.html { render :new }
@@ -41,7 +41,7 @@ class Admin::ActivitiesController<ApplicationController
   def update
     respond_to do |format|
       if @activity.update(activity_params)
-        format.html { redirect_to admin_root_path, notice: "Страница #{@activity.name} успешно обновлена!" }
+        format.html { redirect_to admin_root_path, notice: "Активность #{@activity.name} успешно обновлена!" }
         format.json { render :show, status: :ok, location: @activity }
       else
         format.html { render :edit }
@@ -55,7 +55,7 @@ class Admin::ActivitiesController<ApplicationController
   def destroy
     @activity.destroy
     respond_to do |format|
-      format.html { redirect_to admin_activities_path, notice: "Страница #{@activity.name} успешно удалена!"  }
+      format.html { redirect_to admin_activities_path, notice: "Активность #{@activity.name} успешно удалена!"  }
       format.json { head :no_content }
     end
   end

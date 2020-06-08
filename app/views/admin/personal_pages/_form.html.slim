@@ -8,13 +8,22 @@
     = f.input :cover, required: !@personal_page.cover.attached?
     = f.input :name, required: true, hint: 'Имя, псевдоним или название'
     = f.input :nickname, required: true, hint: 'Отображаемая ссылка'
-    = f.input :short_description, required: true
+    = f.input :short_description, required: true, hint: 'Кратко о себе, например, '
+    .mdc-mb-2 Категории
     .categories-wrap
       - @root_categories.each do |root|
-        - if root.has_children?
-          .categories
-            .font-weight-bold = root.name
-            = render partial: 'personal_page_category', collection: root.children, as: :category
+        .categories
+          .mdc-form-field.mdc-typography-text--left.d-flex
+            .mdc-checkbox
+              input.mdc-checkbox__native-control type="checkbox" required="true" id="personal_page_category_#{root.id}" name="personal_page[category_ids][]" value=root.id checked= (@personal_page.category_ids.include?(root.id) ? "checked" : nil)
+              .mdc-checkbox__background
+                svg.mdc-checkbox__checkmark viewbox=("0 0 24 24")
+                  path.mdc-checkbox__checkmark-path d="M1.73,12.91 8.1,19.28 22.79,4.59" fill="none"
+                .mdc-checkbox__mixedmark
+              .mdc-checkbox__ripple
+            label for="personal_page_category_#{root.id}" class="font-weight-bold"
+              = root.name
+          = render partial: 'personal_page_category', collection: root.children, as: :category
     .mdc-my-2
       .mdc-mb-1 О себе*
       = f.input :about, as: :hidden, :wrapper => false, required: true

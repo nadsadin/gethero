@@ -31,6 +31,7 @@ class PersonalPage < ApplicationRecord
   has_one_attached :cover
   has_one_attached :qr_code
   has_many :donates
+  has_many :activities, through: :user
 
   after_save :update_qr
 

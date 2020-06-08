@@ -34,6 +34,8 @@ class Activity < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: [:slugged]
   has_one_attached :preview
+  has_one_attached :cover
+  has_and_belongs_to_many :categories
   belongs_to :activity_type
   belongs_to :user
 end

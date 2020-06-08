@@ -10,6 +10,7 @@ $height_xl: 60px;
 }
 .mdc-button{
   text-align: center;
+  text-transform: none;
   &--gray{
     @include mdc-button-ink-color(#757575);
     @include mdc-states(#757575);

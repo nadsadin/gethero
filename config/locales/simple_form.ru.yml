@@ -31,6 +31,9 @@ ru:
       post:
         create: "Создать"
         update: "Обновить"
+      activity:
+        create: "Создать"
+        update: "Обновить"
   simple_form:
     "yes": 'Да'
     "no": 'Нет'
@@ -143,6 +146,16 @@ ru:
         odnoklassniki: Одноклассники
         vk: "VK"
         website: Ссылка на сайт
+        avatar: Аватар
+        cover: Ковер
+        name: Имя
+        short_description: Кратко о себе
+        nickname: Никнейм
+      activity:
+        name: Название активности
+        cost: Стоимость
+        short_description: Краткое описание
+        cover: Ковер
       page:
         title: Заголовок
         text: Текст

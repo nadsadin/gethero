@@ -11,9 +11,11 @@
       .mdc-layout-grid__cell--span-12
         .personal-page-title = personal_page.name
         .personal-page-short-description = personal_page.short_description
-        .mdc-typography-text--center
-          = link_to 'Задонатить', new_personal_page_donate_path(@personal_page), class: 'mdc-button mdc-button--unelevated mdc-button-shaped mdc-button--ui-width-240 mdc-button--xl'
-        .personal-page-about
-          .personal-page-about-title О себе
-          .ql-content
-            = personal_page.about.html_safe
+        = simple_form_for([@personal_page, @donate]) do |f|
+          = f.error_notification
+          = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+          = f.input :amount
+          = f.input :comment, as: :text
+          .form-actions
+            = f.button :submit

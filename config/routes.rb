@@ -17,11 +17,14 @@ Rails.application.routes.draw do
       resources :pages
       resources :posts
       resources :personal_pages
+      resources :activities
     end
   end
   resources :pages, only: [:show]
   resources :blog, only: [:show, :index], controller: 'posts'
   get 'users/sign_up/success' => 'custom_registrations#successful_registration'
-  resources :personal_pages, only: [:show], path: ''
+  resources :personal_pages, only: [:show], path: '' do
+    resources :donates, only: [:new, :create]
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

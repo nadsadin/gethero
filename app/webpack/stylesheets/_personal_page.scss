@@ -1,7 +1,7 @@
 .personal-page-hero{
   width: 100%;
   height: 25vw;
-  height: calc(25vw + 80px);
+  //height: calc(80px + 25vw);
   //min-height: 260px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -11,6 +11,7 @@
   display: flex;
   align-items: flex-end;
   margin-bottom: 50px;
+  flex-shrink: 0;
   &-avatar{
     display: block;
     background-clip: padding-box;

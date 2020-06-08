@@ -49,6 +49,7 @@ class User < ApplicationRecord
   has_one :personal_page
   has_one_attached :avatar
   has_many :donates, -> {Donate.paid}, through: :personal_page
+  has_many :activities
 
 
   def account_filled?

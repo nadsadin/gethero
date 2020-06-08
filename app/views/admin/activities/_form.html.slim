@@ -4,18 +4,30 @@
 
   .form-inputs
     = f.input :preview, required: !@activity.preview.attached?
-    = f.input :name, required: true, hint: 'Имя, псевдоним или название'
-    = f.input :nickname, required: true, hint: 'Отображаемая ссылка'
+    = f.input :cover, required: !@activity.cover.attached?
+    = f.input :name, required: true, hint: 'Название активности'
+    = f.input :cost, required: true, hint: 'Введите 0 для бесплатной активности'
+    = material_select 'activity[activity_type_id]', 'Тип активности', ActivityType.all, 'id', 'name', @activity.activity_type_id, true
+    /= f.input :nickname, required: true, hint: 'Отображаемая ссылка'
     = f.input :short_description, required: true
+    .mdc-mb-2 Категории
     .categories-wrap
       - @root_categories.each do |root|
-        - if root.has_children?
-          .categories
-            .font-weight-bold = root.name
-            = render partial: 'activity_category', collection: root.children, as: :category
+        .categories
+          .mdc-form-field.mdc-typography-text--left.d-flex
+            .mdc-checkbox
+              input.mdc-checkbox__native-control type="checkbox" required="true" id="activity_category_#{root.id}" name="activity[category_ids][]" value=root.id checked= (@activity.category_ids.include?(root.id) ? "checked" : nil)
+              .mdc-checkbox__background
+                svg.mdc-checkbox__checkmark viewbox=("0 0 24 24")
+                  path.mdc-checkbox__checkmark-path d="M1.73,12.91 8.1,19.28 22.79,4.59" fill="none"
+                .mdc-checkbox__mixedmark
+              .mdc-checkbox__ripple
+            label for="activity_category_#{root.id}" class="font-weight-bold"
+              = root.name
+          = render partial: 'activity_category', collection: root.children, as: :category
     .mdc-my-2
       .mdc-mb-1 О себе*
-      = f.input :about, as: :hidden, :wrapper => false, required: true
+      = f.input :description, as: :hidden, :wrapper => false, required: true
       #quill-toolbar
         span.ql-formats
           select.ql-font
@@ -51,6 +63,6 @@
         span.ql-formats
           button.ql-clean
       #quill-editor.ql-content
-        = raw sanitize @personal_page.about, tags: %w(strong em a img p br s ol ul li h1 h2 h3 h4 h5 h6 blockquote u i pre), attributes: %w(href src class style)
+        = raw sanitize @activity.description, tags: %w(strong em a img p br s ol ul li h1 h2 h3 h4 h5 h6 blockquote u i pre), attributes: %w(href src class style)
   .form-actions
     = f.button :submit
