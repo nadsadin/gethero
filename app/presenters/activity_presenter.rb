@@ -1,7 +1,7 @@
-class PersonalPagePresenter < BasePresenter
+class ActivityPresenter < BasePresenter
   def cover_image_url
     if model.cover.attached?
-      h.url_for(model.cover)
+      h.url_for(model.cover.variant(resize: '1920x500^'))
     else
       h.asset_pack_path('media/images/preview.png')
     end
@@ -13,15 +13,22 @@ class PersonalPagePresenter < BasePresenter
       # h.asset_pack_path('media/images/preview.png')
     end
   end
+  def price
+    if model.cost>0
+      "#{model.cost} ₽"
+    else
+      "Бесплатно"
+    end
+  end
+  def categories_string
+    model.categories.pluck(:plural).join(' • ')
+  end
   def avatar_url
     if model.avatar.attached?
       h.url_for(model.avatar)
     else
       h.asset_pack_path('media/images/avatar.png')
     end
-  end
-  def categories_string
-    model.categories.pluck(:plural).join(' • ')
   end
   def avatar_background
     ['#b71c1c', '#880e4f', '#4a148c', '#311b92', '#1a237e', '#0d47a1', '#01579b', '#006064', '#004d40', '#1b5e20', '#33691e', '#c43e00', '#bf360c'].sample

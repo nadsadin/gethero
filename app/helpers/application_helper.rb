@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def menu_link(text, path, controller, actions=['index','show','new','edit'])
-    link_to(content_tag(:span, text, class: 'mdc-list-item__text'), path, class: "mdc-list-item #{'mdc-list-item--activated' if controller.include?(params[:controller])&&actions.include?(params[:action])}")
+    link_to(content_tag(:span, text, class: 'mdc-list-item__text'), path, class: "mdc-list-item ")
   end
 
 

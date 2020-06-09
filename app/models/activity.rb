@@ -38,4 +38,6 @@ class Activity < ApplicationRecord
   has_and_belongs_to_many :categories
   belongs_to :activity_type
   belongs_to :user
+  has_one :personal_page, through: :user
+  acts_as_ordered_taggable
 end

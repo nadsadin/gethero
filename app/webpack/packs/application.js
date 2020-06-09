@@ -25,7 +25,7 @@ document.addEventListener('turbolinks:load', function(){
   }
   // const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
   mdc.autoInit();
-  topAppBar.setScrollTarget(document.querySelector('.drawer-main-content'));
+  // topAppBar.setScrollTarget(document.querySelector('.drawer-main-content'));
   topAppBar.listen('MDCTopAppBar:nav', () => {
     modal_drawer.open = !modal_drawer.open;
   });

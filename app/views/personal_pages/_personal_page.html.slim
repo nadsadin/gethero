@@ -4,3 +4,4 @@
       .personal-page-card-image style="background-image: url(#{pp.preview_url})"
     = link_to pp.name, pp, class: 'personal-page-card-title'
     .personal-page-card-description = pp.short_description
+    .personal-page-card__footer-text = pp.categories_string

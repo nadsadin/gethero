@@ -1,0 +1,8 @@
+- present(activity) do |activity_present|
+  .activity-card
+    a.activity-card__preview style="background-image: url(#{activity_present.preview_url})" href=personal_page_activity_path(activity.personal_page, activity)
+      .activity-card__price = activity_present.price
+    .activity-card__user = activity_present.personal_page.name
+    .activity-card__name = activity_present.name
+    .activity-card__footer-text.activity-card__type = activity_present.activity_type.name
+    .activity-card__footer-text.activity-card__categories = activity_present.categories_string

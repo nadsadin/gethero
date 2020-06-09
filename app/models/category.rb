@@ -21,4 +21,8 @@ class Category < ApplicationRecord
   has_and_belongs_to_many :personal_pages
   has_ancestry
   strip_attributes only: [:slug]
+
+  def to_s
+    name
+  end
 end

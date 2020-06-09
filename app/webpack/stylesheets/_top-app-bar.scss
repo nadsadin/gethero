@@ -60,8 +60,11 @@
   }
 }
 
-@media (min-width: 1350px){
+@media (min-width: 840px){
   .mdc-top-app-bar{
-    padding-right: 150px;
+    &__row{
+      max-width: 1140px;
+      margin: 0 auto;
+    }
   }
 }

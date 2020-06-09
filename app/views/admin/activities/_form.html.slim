@@ -10,6 +10,7 @@
     = material_select 'activity[activity_type_id]', 'Тип активности', ActivityType.all, 'id', 'name', @activity.activity_type_id, true
     /= f.input :nickname, required: true, hint: 'Отображаемая ссылка'
     = f.input :short_description, required: true
+    = f.input :tag_list, hint: 'Введите теги, разделяя запятой.', input_html: {value: @activity.tag_list.to_s}
     .mdc-mb-2 Категории
     .categories-wrap
       - @root_categories.each do |root|

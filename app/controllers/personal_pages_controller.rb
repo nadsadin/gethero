@@ -2,6 +2,6 @@ class PersonalPagesController < ApplicationController
 
   def show
     @personal_page = PersonalPage.friendly.find(params[:id])
-    render layout: 'clientside/transparent_top_bar'
+    render layout: 'clientside/standard'
   end
 end

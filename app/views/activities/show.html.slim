@@ -1,0 +1,8 @@
+- present(@activity) do |activity_present|
+  .activity-hero style="background-image: url(#{activity_present.cover_image_url})"
+  .mdc-layout-grid.mdc-layout-grid--narrow
+    .mdc-layout-grid__inner
+      .mdc-layout-grid__cell--span-12
+        .mdc-typography--headline5.mdc-typography-text--center = activity_present.name
+        .mdc-my-4.ql-content = activity_present.description.html_safe
+

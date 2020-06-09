@@ -10,3 +10,10 @@
     }
   }
 }
+@media (min-width: 1350px) {
+  .mdc-layout-grid{
+    --mdc-layout-grid-margin-desktop: 15px;
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+}

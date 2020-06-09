@@ -30,7 +30,7 @@ class WithdrawalPolicy < ApplicationPolicy
     def resolve
       if @user.admin?
         scope
-      elsif @user.employee?
+      elsif @user.celebrity?
         @user.withdrawals
       else
         scope.limit(0)

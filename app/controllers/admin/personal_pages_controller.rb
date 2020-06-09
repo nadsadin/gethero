@@ -75,6 +75,6 @@ class Admin::PersonalPagesController < ApplicationController
     authorize @personal_page
   end
   def personal_page_params
-    params.require(:personal_page).permit(:about, :nickname, :preview, :avatar, :cover, :short_description, :name, category_ids: [])
+    params.require(:personal_page).permit(:about, :nickname, :preview, :avatar, :cover, :short_description, :name, :tag_list, category_ids: [])
   end
 end

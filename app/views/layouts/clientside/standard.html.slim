@@ -2,7 +2,7 @@
   .drawer-frame-root
     /= render 'shared/clientside_menu'
     .drawer-frame-app-content
-      header#top-app-bar.mdc-top-app-bar.mdc-top-app-bar--transparent-light.drawer-top-app-bar data-mdc-auto-init="MDCTopAppBar"
+      header#top-app-bar.mdc-top-app-bar.mdc-top-app-bar--raised.drawer-top-app-bar data-mdc-auto-init="MDCTopAppBar"
         .mdc-top-app-bar__row
           section.mdc-top-app-bar__section.mdc-top-app-bar__section--align-start
             = link_to root_path, class: 'mdc-top-app-bar__text-logo'
@@ -20,7 +20,7 @@
               = link_to t("sign_in"), new_user_session_path, class: 'mdc-top-app-bar__link'
               = link_to t("sign_up"), new_user_registration_path, class: 'mdc-top-app-bar__link'
       .drawer-main-content
-        .mdc-top-app-bar--fixed-adjust.mdc-px-2
+        .mdc-top-app-bar--fixed-adjust
           = render "shared/flash"
           = yield
         = render "shared/footer"
