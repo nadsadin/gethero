@@ -1,6 +1,9 @@
 .personal-page-hero{
   width: 100%;
-  height: 25vw;
+  min-height: 445px;
+  padding-top: 40px;
+  padding-bottom: 30px;
+  box-sizing: border-box;
   //height: calc(80px + 25vw);
   //min-height: 260px;
   background-size: cover;
@@ -8,8 +11,9 @@
   background-position: center;
   color: #fff;
   position: relative;
-  display: flex;
-  align-items: flex-end;
+  //display: flex;
+  //flex-direction: column;
+  //align-items: flex-end;
   margin-bottom: 50px;
   flex-shrink: 0;
   &-avatar{
@@ -19,7 +23,7 @@
     width: 5rem;
     min-width: 5rem;
     height: 5rem;
-    border-width: 4px;
+    border-width: 8px;
     border-style: solid;
     border-color: rgb(255, 255, 255);
     border-image: initial;
@@ -27,8 +31,9 @@
     overflow: hidden;
     background-repeat: no-repeat;
     background-position: center center;
+    margin: 0 auto;
     &-wrap{
-      transform: translateY(30%);
+      //transform: translateY(30%);
       width: auto;
       position: relative;
       margin: 0px auto;
@@ -41,7 +46,7 @@
     width: 5rem;
     min-width: 5rem;
     height: 5rem;
-    border-width: 4px;
+    border-width: 8px;
     border-style: solid;
     border-color: rgb(255, 255, 255);
     border-image: initial;
@@ -50,6 +55,7 @@
     font-size: 40px;
     line-height: 5rem;
     text-align: center;
+    margin: 0 auto;
   }
   &:before{
     content: '';
@@ -60,6 +66,37 @@
     left: 0;
     background-color: #000;
     opacity: 0.5;
+  }
+  &-title{
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 160%;
+    text-align: center;
+    color: #FFFFFF;
+    position: relative;
+  }
+  &-categories{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 160%;
+    text-align: center;
+    color: #FFFFFF;
+    position: relative;
+  }
+  &-actions{
+    width: 100%;
+    margin: 0 auto 66px;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    max-width: 1140px;
+    .mdc-button--unelevated .mdc-button__icon{
+      margin: 0;
+    }
   }
 }
 .personal-page{
@@ -78,7 +115,8 @@
   &-about{
     margin-top: 56px;
     margin-bottom: 56px;
-    font-size: 16px;
+    font-size: 17px;
+    color: #555555;
     &-title{
       font-weight: bold;
       font-size: 28px;
@@ -146,16 +184,16 @@
 @media (min-width: 592px) {
   .personal-page-hero{
     &-avatar{
-      width: 8rem;
-      min-width: 8rem;
-      height: 8rem;
+      width: 160px;
+      min-width: 160px;
+      height: 160px;
     }
     &-no-avatar{
-      width: 8rem;
-      min-width: 8rem;
-      height: 8rem;
-      line-height: 8rem;
-      font-size: 50px;
+      width: 160px;
+      min-width: 160px;
+      height: 160px;
+      line-height: 160px;
+      font-size: 60px;
     }
   }
 
