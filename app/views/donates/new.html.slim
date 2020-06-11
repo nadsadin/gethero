@@ -15,7 +15,7 @@
           = f.error_notification
           = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
-          = f.input :amount
+          = f.input :amount, label: 'Сумма', hint: 'Введите сумму доната от 100₽', input_html: {pattern: '\d*', step: '1'}
           = f.input :comment, as: :text
-          .form-actions
-            = f.button :submit
+          .form-actions.mdc-typography-text--center
+            = f.button :submit, 'Оплатить'

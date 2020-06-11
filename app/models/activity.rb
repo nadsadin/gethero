@@ -39,5 +39,6 @@ class Activity < ApplicationRecord
   belongs_to :activity_type
   belongs_to :user
   has_one :personal_page, through: :user
+  # belongs_to :personal_page
   acts_as_ordered_taggable
 end

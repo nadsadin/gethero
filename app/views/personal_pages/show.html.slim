@@ -12,7 +12,7 @@
         .personal-page-title = personal_page.name
         .personal-page-short-description = personal_page.short_description
         .mdc-typography-text--center
-          = link_to 'Задонатить', new_personal_page_donate_path(@personal_page), class: 'mdc-button mdc-button--unelevated mdc-button-shaped mdc-button--ui-width-240 mdc-button--xl'
+          = link_to 'Поддержать', new_personal_page_donate_path(@personal_page), class: 'mdc-button mdc-button--unelevated mdc-button-shaped mdc-button--ui-width-240 mdc-button--xl'
         .personal-page-about-title.mdc-my-5 Активности
         .cards-line
           = render personal_page.activities

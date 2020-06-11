@@ -20,4 +20,10 @@ class Payment < ApplicationRecord
   validates :amount, presence: true, numericality: { only_integer: true }
 
   enum status: [:unpaid, :paid, :in_progress, :canceled]
+
+  def paid!
+    self.status = :paid
+    self.save!
+    self.target.paid!
+  end
 end

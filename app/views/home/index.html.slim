@@ -1,3 +1,17 @@
+.home-hero__wrap
+  .mdc-layout-grid
+    .mdc-layout-grid__inner
+      .mdc-layout-grid__cell--span-12
+        .home-hero style="background-image: url(#{asset_pack_path('media/images/home_hero.png')})"
+          .home-hero__text
+            |Донатс — удобный сервис донатов, маркетплейс
+            br
+            |и новый канал для взаимодействия
+            br
+            |со знаменитостями.
+          - unless user_signed_in?
+            .mdc-typography-text--center
+              = link_to 'Создать аккаунт', new_user_registration_path, class: 'mdc-button mdc-button--xl mdc-button--unelevated mdc-button-shaped mdc-button--ui-width-240'
 .mdc-layout-grid
   .mdc-layout-grid__inner
     .mdc-layout-grid__cell--span-12

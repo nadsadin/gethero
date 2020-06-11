@@ -1,7 +1,7 @@
 class PersonalPagePresenter < BasePresenter
   def cover_image_url
     if model.cover.attached?
-      h.url_for(model.cover)
+      h.url_for(model.cover.variant(resize: '1920x500^'))
     else
       h.asset_pack_path('media/images/preview.png')
     end

@@ -9,8 +9,8 @@ class PayanywayController < ApplicationController
       @back_default = admin_withdrawals_path
       @cc_confirmation = CcConfirmation.find_by(transaction_id: transaction_id[:transaction_id])
     else
-      @tip = Tip.find(transaction_id[:transaction_id])
-      @back_default = polymorphic_path(@tip.target)
+      @payment = Tip.find(transaction_id[:transaction_id])
+      @back_default = polymorphic_path(@payment.target)
     end
     render layout: 'clientside/back_button_primary'
   end
@@ -26,21 +26,21 @@ class PayanywayController < ApplicationController
       @cc_confirmation.user.update(payment_token: "0#{params[:operation_id]}")
       CcConfirmationRefundWorker.perform_in(2.minutes, params[:transaction_id], params[:operation_id])
     else
-      @tip = Tip.find(params[:transaction_id])
-      @tip.paid!
-      @tip.user.update_balance
+      @payment = Payment.find(params[:transaction_id])
+      @payment.paid!
+      @payment.user.update_balance
     end
   end
-  def fail_implementation(transaction_id)
+  def fail_implementation(params)
     # вызывается при отправке шлюзом пользователя на Fail URL.
-    if transaction_id[:transaction_id].include? 'cc_confirmation'
+    if params[:transaction_id].include? 'cc_confirmation'
       @back_default = admin_withdrawals_path
       @cc_confirmation = CcConfirmation.find_by(transaction_id: transaction_id[:transaction_id], mnt_transaction_id: params[:operation_id])
       @cc_confirmation.canceled!
     else
-      @tip = Tip.find(transaction_id[:transaction_id])
-      @tip.canceled!
-      @back_default = polymorphic_path(@tip.target)
+      @payment = Payment.find(params[:transaction_id])
+      @payment.canceled!
+      @back_default = polymorphic_path(@payment.target)
     end
     render layout: 'clientside/back_button_error'
   end
