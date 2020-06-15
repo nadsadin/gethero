@@ -14,7 +14,7 @@
       nav.mdc-list aria-hidden="true" aria-orientation="vertical" role="menu" tabindex="-1"
         = link_to admin_root_path, class: 'mdc-list-item'
           span.mdc-list-item__text Личный кабинет
-        = menu_link "#{user.celebrity? ? 'Мои активности' : 'Активности'}", admin_activities_path, 'activities' if policy(:activity).index?
+        /= menu_link "#{user.celebrity? ? 'Мои активности' : 'Активности'}", admin_activities_path, 'activities' if policy(:activity).index?
         = menu_link 'Пользователи', admin_users_path, 'users' if policy(:user).index?
         = menu_link 'Страницы', admin_pages_path, 'pages' if policy(:page).new?
         = menu_link 'Посты', admin_posts_path, 'landings' if policy(:post).new?

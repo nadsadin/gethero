@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   get 'users/sign_up/success' => 'custom_registrations#successful_registration'
   resources :personal_pages, only: [:show], path: '' do
     resources :donates, only: [:new, :create]
-    resources :activities, only: [:show], path: ''
+    # resources :activities, only: [:show], path: ''
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
