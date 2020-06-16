@@ -8,17 +8,17 @@ table
   thead
     tr
       th Заголовок страницы
-      th ЧПУ
+      th Никнейм
       th
       th
       th
 
   tbody
-    - @pages.each do |page|
+    - @personal_pages.each do |page|
       tr
-        td = page.title
-        td = page.slug
-        td = link_to 'search', page_path(page.slug), class: 'mdc-icon-button material-icons' if policy(page).edit?
+        td = page.name
+        td = page.nickname
+        td = link_to 'search', page, class: 'mdc-icon-button material-icons'
         td = link_to 'edit', edit_admin_page_path(page), class: 'mdc-icon-button material-icons' if policy(page).edit?
         td = link_to 'delete', [:admin, page], data: { confirm: 'Вы уверены?' }, method: :delete, class: 'mdc-icon-button material-icons' if policy(page).destroy?
 

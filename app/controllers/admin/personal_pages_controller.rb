@@ -32,7 +32,7 @@ class Admin::PersonalPagesController < ApplicationController
     authorize @personal_page
     respond_to do |format|
       if @personal_page.save
-        format.html { redirect_to admin_personal_pages_path, notice: "Страница #{@personal_page.nickname} создана успешно!" }
+        format.html { redirect_to admin_root_path, notice: "Страница #{@personal_page.nickname} создана успешно!" }
         format.json { render :show, status: :created, location: @personal_page }
       else
         format.html { render :new }
