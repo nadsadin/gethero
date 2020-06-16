@@ -9,6 +9,7 @@ class Admin::PersonalPagesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
+    authorize :personal_page
     @personal_pages = policy_scope(PersonalPage).all
   end
 
