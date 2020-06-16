@@ -37,6 +37,8 @@ class PersonalPage < ApplicationRecord
   after_save :update_qr
   before_save :update_nickname
 
+  validates :nickname, format: {with: /\A[A-z0-9_]*\z/, message: "разрешены только латинские буквы, цифры и нижнее подчеркивание"}
+
   private
 
   def update_qr

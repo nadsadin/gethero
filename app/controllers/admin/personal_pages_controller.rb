@@ -36,6 +36,7 @@ class Admin::PersonalPagesController < ApplicationController
         format.html { redirect_to admin_root_path, notice: "Страница #{@personal_page.nickname} создана успешно!" }
         format.json { render :show, status: :created, location: @personal_page }
       else
+        @personal_page.nickname = @personal_page.nickname_was
         format.html { render :new }
         format.json { render json: @personal_page.errors, status: :unprocessable_entity }
       end
@@ -50,6 +51,7 @@ class Admin::PersonalPagesController < ApplicationController
         format.html { redirect_to admin_root_path, notice: "Страница #{@personal_page.nickname} успешно обновлена!" }
         format.json { render :show, status: :ok, location: @personal_page }
       else
+        @personal_page.nickname = @personal_page.nickname_was
         format.html { render :edit }
         format.json { render json: @personal_page.errors, status: :unprocessable_entity }
       end
