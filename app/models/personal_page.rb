@@ -37,7 +37,7 @@ class PersonalPage < ApplicationRecord
   after_save :update_qr
   before_save :update_nickname
 
-  validates :nickname, format: {with: /\A[A-z0-9_]*\z/, message: "разрешены только латинские буквы, цифры и нижнее подчеркивание"}
+  validates :nickname, format: {with: /\A[A-z0-9_\-]*\z/, message: "разрешены только латинские буквы, цифры, тире и нижнее подчеркивание"}
 
   private
 
@@ -49,7 +49,7 @@ class PersonalPage < ApplicationRecord
   end
   def update_nickname
     if(nickname_changed?)
-      self.nickname = '@'+self.nickname
+      self.nickname = '@'+self.nickname.parameterize
     end
   end
 end
