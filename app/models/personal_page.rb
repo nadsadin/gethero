@@ -35,6 +35,7 @@ class PersonalPage < ApplicationRecord
   acts_as_ordered_taggable
 
   after_save :update_qr
+  before_save :update_nickname
 
   private
 
@@ -42,6 +43,11 @@ class PersonalPage < ApplicationRecord
     if(saved_change_to_nickname?)
       svg = open("http://api.qrserver.com/v1/create-qr-code/?data=#{personal_page_url(self)}&size=2000x2000&format=svg")
       self.qr_code.attach(io: svg, filename: "qr_code_#{nickname}.svg")
+    end
+  end
+  def update_nickname
+    if(nickname_changed?)
+      self.nickname = '@'+self.nickname
     end
   end
 end

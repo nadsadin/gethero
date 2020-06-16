@@ -94,6 +94,7 @@
     display: flex;
     justify-content: space-between;
     max-width: 1140px;
+    box-sizing: border-box;
     .mdc-button--unelevated .mdc-button__icon{
       margin: 0;
     }
