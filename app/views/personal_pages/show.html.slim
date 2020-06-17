@@ -14,7 +14,7 @@
         a.mdc-button.mdc-button--unelevated.mdc-button-shaped href='#' Следить
     .personal-page-hero-avatar-wrap
       - if personal_page.avatar.attached?
-        .personal-page-hero-avatar  style="background-image: url(#{url_for(personal_page.avatar)})"
+        .personal-page-hero-avatar  style="background-image: url(#{url_for(personal_page.avatar.variant(resize: '176x176^'))})"
       - else
         .personal-page-hero-no-avatar style="background-color: #{personal_page.avatar_background}"
           = personal_page.name[0]

@@ -2,15 +2,16 @@
   .mdc-mb-2
     |Чтоб начать получать чаевые необходимо заполнить данные о себе.
   .mdc-mb-2
-    = link_to 'Заполнить аккаунт', edit_admin_user_path(current_user), class: 'mdc-button mdc-button--xl mdc-button--unelevated mdc-button-shaped mdc-button--ui-width-240'
+    = link_to 'Заполнить аккаунт', edit_admin_user_path(current_user), class: 'mdc-button mdc-button--unelevated mdc-button-shaped mdc-button--ui-width-200'
 - else
   .mdc-mb-2
     - if current_user.personal_page.present?
       .mdc-typography--headline5.mdc-mb-4 Страница артиста
-      .mdc-mb-2 = link_to 'Редактировать', edit_admin_personal_page_path(current_user.personal_page), class: 'mdc-button mdc-button--xl mdc-button--unelevated mdc-button-shaped mdc-button--ui-width-240'
-      .mdc-mb-2 = link_to 'Смотреть', personal_page_path(current_user.personal_page), class: 'mdc-button mdc-button--xl mdc-button--unelevated mdc-button-shaped mdc-button--ui-width-240'
-      img.mdc-mb-2 src="https://chart.googleapis.com/chart?chs=320x320&cht=qr&chl=#{personal_page_url(current_user.personal_page)}&choe=UTF-8" alt="QR code"
-      .mdc-mb-2 = current_user.personal_page.nickname
+      .mdc-mb-2
+        = link_to 'Редактировать', edit_admin_personal_page_path(current_user.personal_page), class: 'mdc-button mdc-button--unelevated mdc-button-shaped mdc-button--ui-width-200 mdc-mr-2'
+        = link_to 'Смотреть', personal_page_path(current_user.personal_page), class: 'mdc-button  mdc-button--unelevated mdc-button-shaped mdc-button--ui-width-200'
+      img.qr-image src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=#{personal_page_url(current_user.personal_page)}&choe=UTF-8" alt="QR code"
+      .mdc-mb-2.qr-nickname = current_user.personal_page.nickname
       = link_to 'Скачать svg', url_for(current_user.personal_page.qr_code), download: true
     - else
       .mdc-mb-1 Данные аккаунта заполнены. Теперы можно приступить к созданию личной страницы для получения чаевых от клиентов.
@@ -18,6 +19,5 @@
 
   .mdc-typography--headline5.mdc-mb-4 Аккаунт администратора
   .mdc-mb-2
-    = link_to 'Редактировать аккаунт', edit_admin_user_path(current_user), class: 'mdc-button mdc-button--xl mdc-button--unelevated mdc-button-shaped mdc-button--ui-width-240'
-  .mdc-mb-2
-    = link_to 'Вывод средств', admin_withdrawals_path, class: 'mdc-button mdc-button--xl mdc-button--unelevated mdc-button-shaped mdc-button--ui-width-240'
+    = link_to 'Редактировать аккаунт', edit_admin_user_path(current_user), class: 'mdc-button  mdc-button--unelevated mdc-button-shaped mdc-button--ui-width-200 mdc-mr-2'
+    = link_to 'Вывод средств', admin_withdrawals_path, class: 'mdc-button  mdc-button--unelevated mdc-button-shaped mdc-button--ui-width-200'

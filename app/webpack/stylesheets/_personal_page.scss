@@ -182,6 +182,21 @@
     }
   }
 }
+.qr{
+  &-image{}
+  &-nickname{
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 110%;
+    /* or 26px */
+    letter-spacing: -0.01em;
+    color: #000000;
+    margin-left: 30px;
+    margin-top: -20px;
+  }
+}
 @media (min-width: 592px) {
   .personal-page-hero{
     &-avatar{
