@@ -4,6 +4,7 @@
 #
 #  id                :bigint           not null, primary key
 #  about             :text
+#  approved_at       :datetime
 #  name              :string
 #  nickname          :string
 #  short_description :string

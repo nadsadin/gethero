@@ -14,6 +14,12 @@ class PersonalPagePolicy < ApplicationPolicy
   def is_owner?
     @user == @record.user
   end
+  def approve?
+    is_admin?
+  end
+  def remove_approve?
+    is_admin?
+  end
 
   def permitted_attributes
     if user.celebrity?

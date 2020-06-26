@@ -13,6 +13,27 @@ class Admin::PersonalPagesController < ApplicationController
     @personal_pages = policy_scope(PersonalPage).all
   end
 
+  def approve
+    @personal_page = PersonalPage.friendly.find(params[:personal_page_id])
+    authorize @personal_page
+    if @personal_page.update(approved_at: DateTime.current)
+      redirect_to admin_personal_pages_path, notice: "Страница #{@personal_page.nickname} одобрена успешно!"
+    else
+      redirect_to admin_personal_pages_path, notice: "Ошибка! Попробуйте повторить позже"
+    end
+  end
+
+  def remove_approve
+    @personal_page = PersonalPage.friendly.find(params[:personal_page_id])
+    authorize @personal_page
+    if @personal_page.update(approved_at: nil)
+      redirect_to admin_personal_pages_path, notice: "Одобрение для страницы #{@personal_page.nickname} отменено успешно!"
+    else
+      redirect_to admin_personal_pages_path, notice: "Ошибка! Попробуйте повторить позже"
+    end
+
+  end
+
 
   # GET /categories/new
   def new

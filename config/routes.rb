@@ -16,7 +16,10 @@ Rails.application.routes.draw do
       end
       resources :pages
       resources :posts
-      resources :personal_pages
+      resources :personal_pages do
+        get 'approve'
+        get 'remove_approve'
+      end
       resources :activities
     end
   end

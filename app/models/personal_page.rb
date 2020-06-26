@@ -4,6 +4,7 @@
 #
 #  id                :bigint           not null, primary key
 #  about             :text
+#  approved_at       :datetime
 #  name              :string
 #  nickname          :string
 #  short_description :string
@@ -37,7 +38,9 @@ class PersonalPage < ApplicationRecord
   after_save :update_qr
   before_save :update_nickname
 
-  validates :nickname, format: {with: /\A[A-z0-9_\-]*\z/, message: "разрешены только латинские буквы, цифры, тире и нижнее подчеркивание"}
+  validates :nickname, format: {with: /\A[A-z0-9_\-@]*\z/, message: "разрешены только латинские буквы, цифры, тире и нижнее подчеркивание"}
+
+  scope :approved, -> { where.not(approved_at: nil) }
 
   private
 

@@ -16,6 +16,7 @@
           span.mdc-list-item__text Личный кабинет
         /= menu_link "#{user.celebrity? ? 'Мои активности' : 'Активности'}", admin_activities_path, 'activities' if policy(:activity).index?
         = menu_link 'Пользователи', admin_users_path, 'users' if policy(:user).index?
+        = menu_link 'Страницы знаменитостей', admin_personal_pages_path, 'pages' if policy(:personal_page).index?
         = menu_link 'Страницы', admin_pages_path, 'pages' if policy(:page).new?
         = menu_link 'Посты', admin_posts_path, 'landings' if policy(:post).new?
         = menu_link 'Категории', admin_categories_path, 'categories' if policy(:category).index?

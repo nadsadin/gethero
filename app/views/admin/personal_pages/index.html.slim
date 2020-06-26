@@ -12,12 +12,18 @@ table
       th
       th
       th
+      th
 
   tbody
     - @personal_pages.each do |page|
       tr
         td = page.name
         td = page.nickname
+        td
+          -if page.approved_at.blank?
+            = link_to 'Одобрить', admin_personal_page_approve_path(page)
+          -else
+            = link_to 'Отменить одобрение', admin_personal_page_remove_approve_path(page)
         td = link_to 'search', page, class: 'mdc-icon-button material-icons'
         td = link_to 'edit', edit_admin_page_path(page), class: 'mdc-icon-button material-icons' if policy(page).edit?
         td = link_to 'delete', [:admin, page], data: { confirm: 'Вы уверены?' }, method: :delete, class: 'mdc-icon-button material-icons' if policy(page).destroy?

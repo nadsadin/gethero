@@ -7,6 +7,8 @@
   .mdc-mb-2
     - if current_user.personal_page.present?
       .mdc-typography--headline5.mdc-mb-4 Страница артиста
+      - unless current_user.personal_page.approved_at
+        .mdc-mb-2 Страница ожидает проверки от админа.
       .mdc-mb-2
         = link_to 'Редактировать', edit_admin_personal_page_path(current_user.personal_page), class: 'mdc-button mdc-button--unelevated mdc-button-shaped mdc-button--ui-width-200 mdc-mr-2'
         = link_to 'Смотреть', personal_page_path(current_user.personal_page), class: 'mdc-button  mdc-button--unelevated mdc-button-shaped mdc-button--ui-width-200'
