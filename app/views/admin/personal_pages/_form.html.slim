@@ -7,7 +7,7 @@
     = f.input :preview, required: !@personal_page.preview.attached?
     = f.input :cover, required: !@personal_page.cover.attached?
     = f.input :name, required: true, hint: 'Имя, псевдоним или название'
-    = f.input :nickname, required: true,hint: 'Отображаемая ссылка, разрешены только латинские буквы, цифры, тире и нижнее подчеркивание.', input_html: {pattern: '[A-z0-9_]*', value: @personal_page.nickname.sub('@','')}
+    = f.input :nickname, required: true,hint: 'Отображаемая ссылка, разрешены только латинские буквы, цифры, тире и нижнее подчеркивание.', input_html: {pattern: '[A-z0-9_]*', value: @personal_page.nickname.present? ? @personal_page.nickname.sub('@','') : ''}
     = f.input :short_description, required: true, hint: 'Кратко о себе, например: Стендап-комик'
     = f.input :tag_list, hint: 'Введите теги, разделяя запятой.',  input_html: {value: @personal_page.tag_list.to_s}
     .mdc-mb-2 Категории
