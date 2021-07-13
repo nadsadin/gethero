@@ -60,7 +60,7 @@ GEM
       tzinfo (~> 1.1)
     acts-as-taggable-on (6.5.0)
       activerecord (>= 5.0, < 6.1)
-    addressable (2.7.0)
+    addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     airbrussh (1.4.0)
       sshkit (>= 1.6.1, != 1.7.0)
@@ -192,7 +192,7 @@ GEM
       nokogiri
       rails (>= 3.2.0)
     pg (1.2.3)
-    public_suffix (4.0.5)
+    public_suffix (4.0.6)
     puma (3.12.4)
     pundit (2.1.0)
       activesupport (>= 3.0.0)
