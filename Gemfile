@@ -36,7 +36,7 @@ gem 'figaro'
 gem 'interactor', '~> 3.0'
 gem 'kaminari'
 gem 'mini_magick'
-gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.12'
 gem 'rails-i18n', '~> 5.1'
 gem 'ancestry'
 
